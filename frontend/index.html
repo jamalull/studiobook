@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Books</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container nav-wrapper">
+          <a href="#" class="logo">Studio<span>Books</span></a>
+          <div class="menu-wrapper">
+            <ul class="menu">
+              <li class="menu-item"><a href="#" class="menu-link active">Home</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Services</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Pricing</a></li>
+              <li class="menu-item"><a href="#" class="menu-link">Studios</a></li>
+            </ul>
+            <a href="#" class="btn-login">Login</a>
+          </div>
+          <div class="menu-toggle bx bxs-grid"></div>
+        </div>
+      </nav>
+      <section class="home" id="home">
+        <div class="container home-wrapper">
+          <!--content left-->
+          <div class="content-left" data-aos="fade-right">
+            <h1 class="heading">Make Your Moment with Your Favourite <span>Studio</span></h1>
+            <p class="subheading">Our studio is ready to be the best place for you to capture unforgettable moments. Rent immediately and get your best work.</p>
+            <div class="box-wrapper">
+              <div class="box">
+                <i class="bx bxs-check-square"></i>
+                <p>Capture beautiful moments.</p>
+              </div>
+              <div class="box">
+                <i class="bx bxs-check-square"></i>
+                <p>Creating harmony in every note.</p>
+              </div>
+            </div>
+            <div class="form-panel">
+              <img src="assets/img/form1.jpg" alt="" />
+              <div class="title-form">
+                <p>Get the schedule</p>
+              </div>
+              <div class="form-location">
+                <i class="bx bxs-map loc"></i>
+                <div class="location">
+                  <p>Location <i class="bx bx-chevron-down"></i></p>
+                  <select>
+                    <option value="">Jakarta, Indonesia</option>
+                    <option value="">Yogyakarta, Indonesia</option>
+                    <option value="">Bali, Indonesia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-date">
+                <i class="bx bxs-calendar-alt cal"></i>
+                <div class="date">
+                  <p>Date <i class="bx bx-chevron-down"></i></p>
+                  <input type="date" />
+                </div>
+              </div>
+              <div class="btn-search">
+                <i class="bx bx-search"></i>
+              </div>
+            </div>
+            <p class="sugestion">Popular studio : H4ra Studio, MONO Studio, Net Studio</p>
+          </div>
+          <!--content right-->
+          <div class="content-right" data-aos="fade-left">
+            <div class="img-wrapper">
+              <img src="assets/img/Guitar.png " alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- Service Start-->
+    <section class="service">
+      <div class="container service-wrapper">
+        <div class="row1">
+          <p class="label-service">What we serve</p>
+          <h1 class="heading-service">Top Values For You</h1>
+          <p class="subheading-service">The best service that will be with you every time</p>
+        </div>
+        <div class="row2" data-aos="fade-up">
+          <div class="box-service">
+            <i class="bx bxs-music"></i>
+            <h3>Music Recording</h3>
+            <p>Music recording holds the power to create soul-stirring masterpieces. Each note is a dynamic and intense story, portraying emotions and inspirations.</p>
+            <div class="btn-learn">
+              <a href="#"> Learn More</a>
+            </div>
+          </div>
+          <div class="box-service">
+            <i class="bx bxs-music"></i>
+            <h3>Practice Session</h3>
+            <p>Every session is a dynamic and intense journey, where dedication and passion converge. This is the training ground, where musicians harness their craft, honing their skills to perfection</p>
+            <div class="btn-learn">
+              <a href="#"> Learn More</a>
+            </div>
+          </div>
+          <div class="box-service">
+            <i class="bx bxs-camera"></i>
+            <h3>Product photography</h3>
+            <p>Product photography sessions are a critical phase in presenting products at their very best, a vital step in successful marketing and visual storytelling</p>
+            <div class="btn-learn">
+              <a href="#"> Learn More</a>
+            </div>
+          </div>
+          <div class="box-service">
+            <i class="bx bxs-camera"></i>
+            <h3>Photo Studio</h3>
+            <p>In every rental session, photographers are granted the freedom to arrange lighting, settings, and ambiance in line with their envisioned concepts</p>
+            <div class="btn-learn">
+              <a href="#"> Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Service End-->
+
+    <!-- Produk start-->
+    <section class="produk">
+      <div class="container produk-wrapper">
+        <div class="row1">
+          <div class="title-produk">
+            <p class="label-produk">TOP STUDIO</p>
+            <h1 class="heading-produk">Choose Your Studio</h1>
+          </div>
+          <div class="toggle-slider">
+            <i class="bx bxs-chevron-left-circle"></i>
+            <i class="bx bxs-chevron-right-circle"></i>
+          </div>
+        </div>
+        <div class="row2">
+          <!-- Swiper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/music1.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Music</p>
+                    <p class="price">80k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Intan Music Studio</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.4</div>
+                    <p>58 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Intan music studio & Course • Sound system for rent • Musical instrument for rent</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/photo1.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Photo</p>
+                    <p class="price">50k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Moro Self Photo</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 5.0</div>
+                    <p>252 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Hi Moro Peeps, sekarang Morostudio dapat hadir di acara-acara kamu lohh dalam bentuk Self Photobooth.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/music2.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Music</p>
+                    <p class="price">80k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Charlie Studio Music</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.2</div>
+                    <p>320 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Kami adalah jasa pelayanan studio musik dan rekaman, terdiri dari 3 studio latihan dan 1 studio rekaman.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/photo2.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Photo</p>
+                    <p class="price">100k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Agatha Photo</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.8</div>
+                    <p>2.065 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Visi : Not just to be the biggest, but the gratest in photography industry as well. Misi: We innovate continuously</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/music3.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Music</p>
+                    <p class="price">99k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Studio Musik Sebelas</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.8</div>
+                    <p>81 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Studio musik dan recording SEBELAS Yogyakarta.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/photo3.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Photo</p>
+                    <p class="price">30k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Duta Foto Pusat</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.5</div>
+                    <p>1.341 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Karena moment adalah salah satu bentuk keabadian yang tak akan lekang oleh waktu.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/music4.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Music</p>
+                    <p class="price">35k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Pringgading Studio Music</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.7</div>
+                    <p>26 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide card-produk">
+                <img src="assets/img/photo4.jpg" alt="" />
+                <div class="detail-produk">
+                  <div class="kategori">
+                    <p class="label-kategori">Photo</p>
+                    <p class="price">35k</p>
+                  </div>
+                  <div class="title-card">
+                    <h1>Valio Studios</h1>
+                  </div>
+                  <div class="review">
+                    <div class="star"><i class="bx bxs-star"></i> 4.6</div>
+                    <p>1.161 reviewer</p>
+                  </div>
+                  <div class="body-card">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  </div>
+                  <div class="btn-produk">
+                    <a href="#">Detail</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Swiper JS -->
+        </div>
+      </div>
+    </section>
+    <!-- Produk End-->
+
+    <!-- Banner start-->
+    <div class="banner1 container">
+      <div class="content">
+        <h1 class="heading">SPECIAL OFFER</h1>
+        <h3>Project Weekend Package</h3>
+        <p>Off up to 50%</p>
+      </div>
+      <div class="btn-book">
+        <a href="#">Book Now</a>
+      </div>
+    </div>
+    <!-- Banner End-->
+
+    <!-- Statistik start-->
+    <section class="statistik">
+      <div class="container statistik-wrapper">
+        <div class="content-img" data-aos="fade-right">
+          <img src="assets/img/guitar2.png" alt="" />
+        </div>
+        <div class="content-statis" data-aos="fade-left">
+          <p class="label-statis">OUR PERFORMANCE</p>
+          <h1 class="heading-statis">Most people are satisfied with our service</h1>
+          <p class="subheading-statis">We always provide the best service to customer, we will direct you from ordering to the studio</p>
+          <div class="angka-wrapper">
+            <div class="box-angka">
+              <h1>20</h1>
+              <p>Years Experience</p>
+            </div>
+            <div class="box-angka">
+              <h1>100++</h1>
+              <p>Studios In Yogyakarta</p>
+            </div>
+            <div class="box-angka">
+              <h1>2k</h1>
+              <p>Customer Happy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Statistik End-->
+
+    <!-- testi start-->
+    <section class="testi">
+      <div class="container testi-wrapper">
+        <div class="col-heading" data-aos="fade-right">
+          <p class="label-testi">WHAT THEY SAID</p>
+          <h1 class="heading-testi">What customers say about their experience with us</h1>
+          <p class="subheading-testi">
+            I recently utilized Studio Books for my photo shoot, and the experience was exceptional. The studio provided a versatile space with top-notch lighting and equipment, allowing me to bring my creative vision to life. The staff was
+            incredibly helpful and accommodating, ensuring that I had everything I needed for a successful session. The ambiance of the studio was inspiring, making the entire process enjoyable and productive. I highly recommend Studio
+            Books to anyone seeking a professional and well-equipped studio for their creative projects.
+          </p>
+        </div>
+        <div class="col-slider-testi" data-aos="fade-left">
+          <!-- Swiper -->
+          <div class="swiper mySwiperTesti">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this StudioBooks, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by Susi Gombrang</p>
+                <p class="status">Mahasiswa</p>
+              </div>
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this trouravel, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by tinyleopard720</p>
+                <p class="status">Traveller</p>
+              </div>
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this trouravel, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by tinyleopard720</p>
+                <p class="status">Traveller</p>
+              </div>
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this trouravel, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by tinyleopard720</p>
+                <p class="status">Traveller</p>
+              </div>
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this trouravel, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by tinyleopard720</p>
+                <p class="status">Traveller</p>
+              </div>
+              <div class="swiper-slide card-testi">
+                <img src="assets/img/testi.png" alt="" />
+                <div class="text-testi">
+                  <i class="bx bxs-quote-left"></i>
+                  <p>I am very helpful with this trouravel, because we can easily get it all without having to prepare it from afar, and also the price is affordable, highly recommended.</p>
+                  <i class="bx bxs-quote-right"></i>
+                </div>
+                <p class="username">by tinyleopard720</p>
+                <p class="status">Traveller</p>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- testi End-->
+
+    <!-- Banner2 Start-->
+    <section class="banner2">
+      <div class="container banner2-wrapper">
+        <div class="content-banner2">
+          <h1 class="heading">ARE YOU NEW MEMBER FOR THIS STUDIO?</h1>
+          <p class="subheading">Lets register now and get cashback</p>
+          <p class="disc">UP TO 20%</p>
+        </div>
+        <div class="btn-banner2">
+          <a href="#" class="btn-regis">Register</a>
+        </div>
+      </div>
+    </section>
+    <!-- Banner2 End-->
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+      <div class="container footer-wrapper">
+        <div class="col1-footer">
+          <h1 class="logo-footer">Studio<span>Books</span></h1>
+          <p class="subheading-footer">The best service to customers is our top priority in building a creatifity</p>
+          <div class="sosmed-icon">
+            <a href="#"><i class="bx bxl-instagram-alt"></i></a>
+            <a href="#"><i class="bx bxl-whatsapp"></i></a>
+            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+          </div>
+          <p class="copy">&copy;Copyright 2023 All Right Reserved | Built by StudioBooks</p>
+        </div>
+        <div class="col2-footer">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Menu</a></li>
+          </ul>
+        </div>
+        <div class="col3-footer">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">Why StudioBooks?</a></li>
+            <li><a href="#">Partners with us</a></li>
+          </ul>
+        </div>
+        <div class="col4-footer">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End-->
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1500,
+        delay: 200,
+      });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
