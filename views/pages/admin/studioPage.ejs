@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <base href="/">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Jul 27 2023 with Bootstrap v5.3.1
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <%- include('../../components/header') %>
+    <%- include('../../components/sidebar') %>
+
+      <main id="main" class="main">
+
+        <div class="pagetitle">
+          <h1>Kelola Studio</h1>
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-6">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">StudioBook Dashboard Home</h5>
+                  <p>Hello <b>
+                      <% if(!user){ %>
+                        Myprofile
+                        <% }else{ %>
+                          <%= user.username %>
+                        <% } %>
+                    </b>, Welcome to the dashboard StudioBook.</p>
+                  <p>Enjoy, and let's to explore all feature in the dashboard now.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <!-- <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Example Card</h5>
+              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+            </div>
+          </div> -->
+
+            </div>
+          </div>
+        </section>
+
+        <!-- START TABLE LIST ALL STUDIO -->
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="card">
+                <div class="card-body">
+
+                  <span class="d-flex align-items-center">
+                    <h5 class="card-title me-auto">Daftar Studio</h5>
+                    <button class="btn btn-outline-primary h-25" data-bs-toggle="modal" data-bs-target="#createModal"><i
+                        class="fa-solid fa-plus fa-fade me-2"></i>Buat Studio Baru
+                    </button>
+                  </span>
+
+                  <p>All Studio available will be display in the table and only Admin/Owner Studio can running command
+                    <a href="#" target="_blank">Create, Read, Update, and Delete</a> for the data of <code>Studio</code>
+                  </p>
+
+                  <!-- Table with stripped rows -->
+                  <table class="table datatable">
+                    <thead>
+                      <tr class="text-center">
+                        <!-- <th scope="col">Studio ID</th> -->
+                        <th scope="col">Gambar</th>
+                        <th scope="col">Nama</th>
+                        <!-- <th scope="col">Owner</th> -->
+                        <th scope="col">Deskripsi</th>
+                        <!-- <th scope="col">Alamat</th> -->
+                        <th scope="col">Harga (Per Jam)</th>
+                        <th scope="col">Kategori</th>
+                        <!-- <th scope="col">Durasi Paket (Jam)</th> -->
+                        <th scope="col">Ruang (Unit)</th>
+                        <th scope="col">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% if(studios.length===0) { %>
+                        <tr class="">
+                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
+                          <td class="text-center">
+                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                          </td>
+                          <td>Premix Studio</td>
+                          <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
+                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
+                          <td>Rp250.000</td>
+                          <td>Studio Podcast</td>
+                          <td>5</td>
+                          <td>Lorem, ipsum dolor.</td>
+                        </tr>
+                        <tr class="">
+                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
+                          <td class="text-center">
+                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                          </td>
+                          <td>Generals Studio</td>
+                          <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
+                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
+                          <td>Rp250.000</td>
+                          <td>Studio Podcast</td>
+                          <td>5</td>
+                          <td>Lorem, ipsum dolor.</td>
+                        </tr>
+                        <tr class="">
+                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
+                          <td class="text-center">
+                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                          </td>
+                          <td>Mixaa Studio</td>
+                          <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
+                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
+                          <td>Rp250.000</td>
+                          <td>Studio Podcast</td>
+                          <td>5</td>
+                          <td>Lorem, ipsum dolor.</td>
+                        </tr>
+                        <% } else {%>
+                          <% studios.forEach((studio, key)=> { %>
+                            <tr>
+                              <!-- <th scope="row">
+                                <%= studio.id %>
+                              </th> -->
+                              <td>
+                                <!-- <img src="https://via.placeholder.com/640x360" alt="img-studio" > -->
+                                <%= studio.image %>
+                              </td>
+                              <td>
+                                <%= studio.name %>
+                              </td>
+                              <td class="text-truncate" style="max-width: 200px;">
+                                <%= studio.description %>
+                              </td>
+                              <td>
+                                <%= studio.address %>
+                              </td>
+                              <td>
+                                <%= studio.price %>
+                              </td>
+                              <td>
+                                <%= studio.category %>
+                              </td>
+                              <td>
+                                <%= studio.room %>
+                              </td>
+                              <td>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                  data-bs-target="#deleteModal-<%= studio.id %>">
+                                  <i class="fa fa-trash me-2"></i>Delete
+                                </button>
+                              </td>
+                            </tr>
+
+                            <!-- Modal Delete -->
+                            <div class="modal fade" id="deleteModal-<%= studio.id %>" tabindex="-1" role="dialog"
+                              aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan !</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>Apakah Anda yakin ingin hapus studio dari <b>
+                                        <%= studio.name %>
+                                      </b> ?</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary"
+                                      data-bs-dismiss="modal">Batalkan</button>
+                                    <a href="#" class="btn btn-danger">Hapus</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <% }) } %>
+                    </tbody>
+                  </table>
+                  <!-- End Table with stripped rows -->
+
+                  <!-- Modal Create Data -->
+                  <div class="modal fade" id="createModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">Vertically Centered</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Floating Labels Form -->
+                          <form class="row g-3">
+                            <div class="col-md-12">
+                              <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingImage" placeholder="Gambar Studio">
+                                <label for="floatingImage">Gambar Studio</label>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingName" placeholder="Nama Studio">
+                                <label for="floatingName">Nama Studio</label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingCategory" aria-label="Kategori Studio">
+                                  <option selected value="Studio Photography">Studio Photography</option>
+                                  <option value="Studio Music">Studio Music</option>
+                                  <option value="Studio Podcast">Studio Podcast</option>
+                                  <option value="Studio Recording">Studio Recording</option>
+                                </select>
+                                <label for="floatingCategory">Kategori Studio</label>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingDesc" placeholder="Deskripsi">
+                                <label for="floatingDesc">Deskripsi</label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-floating">
+                                <textarea class="form-control" placeholder="Alamat" id="floatingAlamat"
+                                  style="height: 100px;"></textarea>
+                                <label for="floatingAlamat">Alamat</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="col-md-12">
+                                <div class="form-floating">
+                                  <input type="number" class="form-control" id="floatingHarga" placeholder="Harga">
+                                  <label for="floatingHarga">Harga (per Jam)</label>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- <div class="col-md-3">
+                              <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingDuration" placeholder="Duration">
+                                <label for="floatingDuration">Durasi Paket (? Jam)</label>
+                              </div>
+                            </div> -->
+                            <div class="col-md-6">
+                              <div class="form-floating">
+                                <input type="number" class="form-control" id="floatingRoom" placeholder="Room">
+                                <label for="floatingRoom">Ruang (Unit)</label>
+                              </div>
+                            </div>
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                              <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                          </form><!-- End floating Labels Form -->
+                        </div>
+                        <!-- <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div><!-- End Vertically centered Modal-->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <!-- END TABLE LIST ALL STUDIO -->
+
+      </main><!-- End #main -->
+
+      <%- include('../../components/footer') %>
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+        <!-- <script src="assets/vendor/apexcharts/apexcharts.min.js"></script> -->
+        <!-- <script src="assets/vendor/chart.js/chart.umd.js"></script> -->
+        <!-- <script src="assets/vendor/echarts/echarts.min.js"></script> -->
+        <!-- <script src="assets/vendor/quill/quill.min.js"></script> -->
+        <!-- <script src="assets/vendor/tinymce/tinymce.min.js"></script> -->
+        <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
