@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookingpage</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>Studio<span>Books</span></h1>
+    </nav>
+
+    <div class="angka-wrapper">
+      <div class="pem1"><img class="vector-16" src="assets/img/vector_16.png" alt="Vector 16" /></div>
+      <div class="pem2"><div class="dua">2</div></div>
+      <div class="pem2"><div class="tiga">3</div></div>
+    </div>
+    <section class="info">
+      <h1>Pembayaran</h1>
+      <p>Silakan ikuti petunjuk di bawah ini</p>
+    </section>
+    <div class="container">
+      <div class="content-left">
+        <div class="swiper-wrapper">
+          <div class="flex-row flex">
+            <div class="flex-col-2 flex-col-3">
+                <div class="transfer-pembayaran poppins-normal-biscay-16px">Transfer Pembayaran:</div>
+                <div class="tax-10 poppins-normal-biscay-16px"><span class="poppins-normal-biscay-16px">Tax:</span><span class="poppins-medium-biscay-16px">10%</span>
+            </div>
+            <div class="total poppins-normal-biscay-16px"> 
+                <span class="poppins-normal-biscay-16px">Sub Total:</span>
+                <span class="poppins-medium-biscay-16px"> Rp. 150.000,00</span>
+            </div> 
+            <div class="total poppins-normal-biscay-16px"> 
+                <span class="poppins-normal-biscay-16px">Total:</span>
+                <span class="poppins-medium-biscay-16px"> Rp. 165.000,00</span>
+            </div>  
+            <div class="item_bank"> 
+                <img class="logo_bank" src="assets/img/bank-bca.png" alt="logo_bank"/> 
+                <div class="flex-col flex">  
+                    <div class="bank-central-asia poppins-normal-biscay-16px">Bank Central Asia</div> 
+                    <div class="phone poppins-normal-biscay-16px">2208 1996</div> 
+                    <div class ="studiobook-inc poppins-normal-biscay-16px">Studiobook Inc.</div>
+            </div> 
+        </div> 
+        <div class="item_bank-1">
+            <img class="logo_bank" src="assets/img/bank-mandiri.png" alt="logo_bank" />
+            <div class="flex-col flex"> 
+                <div class="bank-mandiri poppins-normal-biscay-16px">Bank Mandiri</div> 
+                <div class="phone-1 poppins-normal-biscay-16px">2208 1996</div> 
+                <div class="studiobook-inc-1 poppins-normal-biscay-16px">Studiobook Inc.</div>
+            </div>
+        </div> 
+    </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="content-right">
+        <div class="inputan">
+          <div class="input-container">
+            <label for="Upload poppins-medium-biscay-16px">Upload Bukti Transfer</label>
+            <input type="file" id="Upload" name="Upload" required />
+          </div>
+
+          <div class="input-container">
+            <label for="Bank">Asal Bank</label>
+            <input type="text" id="Bank" placeholder="Please type here" name="Bank" required />
+          </div>
+
+          <div class="input-container">
+            <label for="name">Nama Pengirim</label>
+            <input type="text" id="name" placeholder="Please type here" name="name" required />
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button id="continue-button" disabled>Lanjutkan Pembayaran</button>
+      <button id="cancel-button">Batal</button>
+    </div>
+    <script src="/assets/script/main.js"></script>
+  </body>
+</html>
