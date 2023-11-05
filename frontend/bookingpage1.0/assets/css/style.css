@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&family=Roboto:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&family=Poppins:wght@600&family=Roboto:wght@500;700&display=swap");
+
+body {
+  background-color: #e6e6e6;
+}
+
+.navbar {
+  text-align: center;
+  width: auto;
+}
+
+.navbar h1 {
+  color: #3252df;
+  font-family: "Pacifico", cursive;
+  font-size: 1.8rem;
+}
+
+.navbar h1 span {
+  color: #152c5b;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
+.navbar a {
+  text-decoration: none;
+  text-align: center;
+  align-items: center;
+}
+
+.angka-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Untuk menjaga agar ketiga lingkaran sejajar */
+  /* background-color: #152c5b; */
+  height: 150px;
+  align-items: center;
+}
+
+.satu,
+.dua,
+.tiga {
+  width: 45px; /* Sesuaikan ukuran lingkaran sesuai kebutuhan */
+  height: 45px;
+  background-color: #cecece; /* Warna latar belakang lingkaran */
+  border-radius: 50%; /* Membuat elemen lingkaran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #313030; /* Warna teks di tengah lingkaran */
+  font-size: 20px;
+  font-weight: bold;
+  /* border: 2px solid #000; */
+  /* padding: 5px; */
+  font-family: "roboto", sans-serif;
+}
+
+.pem1 {
+  width: 52px;
+  height: 52px;
+  background-color: #3252df00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #898989b1;
+}
+
+.info {
+  text-align: center;
+  align-items: center;
+}
+.info h1 {
+  font-family: "Poppins", sans-serif;
+  color: #152c5b;
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+}
+.info p {
+  font-family: "poppins light", sans-serif;
+  font-size: 15px;
+  color: #b0b0b0;
+  margin-top: -10px;
+}
+
+/* container */
+.container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 20px;
+  margin: 50px 280px;
+}
+
+/* content-left */
+
+.card-produk {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 20px;
+  max-width: 250px;
+  text-align: right;
+  justify-content: space-between;
+}
+
+.card-produk img {
+  width: 100%;
+  border-radius: 10px;
+  display: block; /* Membuat gambar berada di tengah */
+  margin: 0 auto; /* Membuat gambar berada di tengah */
+}
+
+.title-card {
+  display: flex; /* Menggunakan Flexbox */
+  justify-content: space-between; /* Menjadikan elemen dalam "title-card" sejajar */
+  align-items: center; /* Menggunakan Flexbox untuk pemusatan vertikal */
+  margin: 10 0;
+}
+
+.title-card h1 {
+  font-size: 15px;
+  padding: 10px 0 0 0;
+}
+
+.star {
+  margin-left: 10px; /* Memberikan jarak kiri agar sejajar dengan judul */
+  color: #ffc107;
+  padding: 10px 0 0 0;
+}
+
+/* Styling body section */
+.body-card {
+  margin: 10px 0;
+  font-size: 14px;
+  text-align: left;
+  padding: 10px 0 0 0;
+}
+
+.location {
+  text-align: left;
+}
+
+.studio span {
+  color: gray;
+}
+
+/* Styling button section */
+.btn-produk a {
+  background-color: #29353c;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-produk a:hover {
+  background-color: #768a96;
+}
+
+.swiper-wrapper {
+  display: flex; /* Membuat elemen-elemen di dalamnya tampil secara horizontal (sejajar) */
+  flex-wrap: wrap; /* Jika jumlah elemen melebihi lebar, elemen-elemen akan pindah ke baris baru */
+  gap: 20px; /* Jarak antara elemen-elemen */
+  justify-content: center; /* Membuat elemen-elemen rata kiri */
+}
+/* content -right */
+.inputan {
+  height: 200px;
+  width: 250px;
+}
+
+.input-container {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-family: "poppins light", sans-serif;
+  font-size: 12px;
+  color: #152c5b;
+}
+
+input[type="text"] {
+  width: 90%;
+  height: 25px;
+  padding: 5px;
+  background-color: #cecece; /* Warna latar belakang abu-abu */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/* button */
+
+.button-container {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container button {
+  margin: 10px; /* Jarak antara tombol */
+  padding: 10px 20px; /* Padding tombol */
+  font-size: 16px;
+  width: 220px;
+  box-shadow: 5px 5px 10px 0 #50505049;
+}
+
+#continue-button {
+  background-color: #008cba; /* Warna latar tombol Lanjutkan Pemesanan */
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid gray;
+  cursor: pointer;
+  border-radius: 5px;
+  /* display: none; */
+  /* Warna teks tombol Lanjutkan Pemesanan */
+}
+
+#cancel-button {
+  background-color: #cecece; /* Warna latar tombol Batal */
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 120px;
+}
