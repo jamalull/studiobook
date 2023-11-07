@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #29353c;
+    background: darkgray;
 }
 .container {
     position: relative;
@@ -250,4 +250,12 @@ a {
     form {
         width: 90%;
     }
+}
+
+.back{
+    text-decoration: none;
+}
+
+.back:hover{
+    text-decoration: underline;
 }
