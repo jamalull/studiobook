@@ -81,6 +81,79 @@ section {
   border-radius: 50px;
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: var(--heading-font);
+  color: #fff;
+  font-weight: 600;
+  background-color: var(--second-color);
+  padding: 15px 20px;
+  border-radius: 50px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e6e6e6;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  top: 100%;
+  left: -20px;
+  width: 150px;
+  text-align: left;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  padding: 15px 5px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+
+.bx-user,
+.bx-cog,
+.bx-log-out {
+  padding-right: 5px;
+}
+
+/* Tampilkan dropdown saat tombol diklik dan atur item secara vertikal */
+
+.dropdown.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown.active .dropdown-item {
+  display: block;
+}
+
+/* Menyembunyikan item dropdown by default */
+
+.dropdown .dropdown-item {
+  display: none;
+}
+
+/* Tombol dropdown saat diklik */
+
+.dropdown.active .dropdown-toggle::after {
+  content: "\25B2"; /* Tanda panah atas (ikon naik) */
+}
+
+/* Tombol dropdown saat tidak aktif */
+
+.dropdown .dropdown-toggle::after {
+  content: "\25BC"; /* Tanda panah bawah (ikon turun) */
+}
+
 /*Home Start*/
 .home {
   margin-top: 110px;
