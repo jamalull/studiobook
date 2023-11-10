@@ -39,3 +39,13 @@ var swiper = new Swiper(".mySwiperTesti", {
     disableOnInteraction: false,
   },
 });
+
+// Mengambil tombol dropdown dan menu dropdown
+const dropdownButton = document.getElementById("dropdownButton");
+const dropdownMenu = document.getElementById("dropdownMenu");
+const dropdown = document.querySelector(".dropdown");
+
+// Mengatur perilaku dropdown saat tombol diklik
+dropdownButton.addEventListener("click", function () {
+  dropdown.classList.toggle("active");
+});
