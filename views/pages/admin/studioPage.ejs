@@ -19,7 +19,8 @@
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -131,39 +132,33 @@
 
                       <% if(studios.length===0) { %>
                         <tr class="">
-                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
                           <td class="text-center">
-                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                            <img class="imageStudio" src="https://cdn.pnghd.pics/data/899/sewa-studio-foto-jakarta-18.jpg" alt="img-studio">
                           </td>
                           <td>Premix Studio</td>
                           <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
-                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
                           <td>Rp250.000</td>
                           <td>Studio Podcast</td>
                           <td>5</td>
                           <td>Lorem, ipsum dolor.</td>
                         </tr>
                         <tr class="">
-                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
                           <td class="text-center">
-                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                            <img class="imageStudio" src="https://165suite.com/wp-content/uploads/2022/09/Info-Lengkap-Rata-rata-Harga-Sewa-Studio-Jakarta.jpg" alt="img-studio">
                           </td>
                           <td>Generals Studio</td>
-                          <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
-                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
+                          <td style="max-width: 200px;"><%= ("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.adipisicing elit. Eum, optio.adipisicing elit. Eum, optio.adipisicing elit. Eum, optio.").slice(0,100).concat("...") %></td>
                           <td>Rp250.000</td>
                           <td>Studio Podcast</td>
                           <td>5</td>
                           <td>Lorem, ipsum dolor.</td>
                         </tr>
                         <tr class="">
-                          <!-- <td colspan="10" class="text-center">Tidak Ada Data</td> -->
                           <td class="text-center">
-                            <img class="imageStudio" src="https://via.placeholder.com/640x360" alt="img-studio">
+                            <img class="imageStudio" src="https://i0.wp.com/katalisnet.com/wp-content/uploads/2020/12/studio-podcast-katalisnet-3-e1608715753161.jpeg?fit=640%2C360&ssl=1" alt="img-studio">
                           </td>
                           <td>Mixaa Studio</td>
                           <td class="text-truncate" style="max-width: 200px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, optio.</td>
-                          <!-- <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, aliquid!</td> -->
                           <td>Rp250.000</td>
                           <td>Studio Podcast</td>
                           <td>5</td>
@@ -172,63 +167,189 @@
                         <% } else {%>
                           <% studios.forEach((studio, key)=> { %>
                             <tr>
-                              <!-- <th scope="row">
-                                <%= studio.id %>
-                              </th> -->
                               <td>
-                                <!-- <img src="https://via.placeholder.com/640x360" alt="img-studio" > -->
-                                <%= studio.image %>
+                                <img class="imageStudio" src="<%= studio.image %>" alt="img-studio" >
                               </td>
                               <td>
                                 <%= studio.name %>
                               </td>
-                              <td class="text-truncate" style="max-width: 200px;">
-                                <%= studio.description %>
+                              <td style="max-width: 200px;">
+                                <%= (studio.description).slice(0,100).concat("...") %>
                               </td>
                               <td>
-                                <%= studio.address %>
-                              </td>
-                              <td>
-                                <%= studio.price %>
+                                <%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(studio.price); %>
                               </td>
                               <td>
                                 <%= studio.category %>
                               </td>
-                              <td>
+                              <td class="text-center">
                                 <%= studio.room %>
                               </td>
                               <td>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                  data-bs-target="#deleteModal-<%= studio.id %>">
-                                  <i class="fa fa-trash me-2"></i>Delete
-                                </button>
+                                <div class="d-flex flex-column gap-2">
+                                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal-<%= studio.id %>">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </button>
+                                  <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#editModal-<%= studio.id %>">
+                                    <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                                  </button>
+                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal-<%= studio.id %>">
+                                    <i class="fa fa-trash"></i>
+                                  </button>
+                                </div>
                               </td>
                             </tr>
 
-                            <!-- Modal Delete -->
-                            <div class="modal fade" id="deleteModal-<%= studio.id %>" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan !</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    </button>
+                          
+                          <!-- Modal Detail Data -->
+                          <div class="modal fade" id="detailModal-<%= studio.id %>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Detail Studio dari <%= studio.name %></h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <h4 class="fw-semibold text-capitalize"><%= studio.name%></h4>
+                                  <div class="d-flex justify-content-between p-2">
+                                    <div>
+                                      <p><i class="fa-regular fa-building"></i> <%= studio.category%></p>
+                                      <p><i class="fa-solid fa-coins"></i> <%=  new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(studio.price); %></p>
+                                    </div>
+                                    <div>
+                                      <p><i class="fa-solid fa-door-open"></i> <%= studio.room %> Ruangan Tersedia</p>
+                                      <p><i class="fa-regular fa-star-half-stroke"></i> 4.7/5.0 <%= studio.rating %> Reviews</p>
+                                    </div>
+                                    <div>
+                                      <p><i class="fa-regular fa-clock"></i> Dibuat : <%= studio.createdAt.toDateString() %></p>
+                                      <p><i class="fa-solid fa-clock-rotate-left"></i> Diperbarui : <%= studio.updatedAt.toDateString() %></p>
+                                    </div>
                                   </div>
-                                  <div class="modal-body">
-                                    <p>Apakah Anda yakin ingin hapus studio dari <b>
-                                        <%= studio.name %>
-                                      </b> ?</p>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-primary"
-                                      data-bs-dismiss="modal">Batalkan</button>
-                                    <a href="#" class="btn btn-danger">Hapus</a>
+                                  <img class="detailImgStudio " src="<%= studio.image %>" alt="">
+                                  
+                                  <div class="p-2">
+                                    <p class="fw-semibold">Alamat :</p>
+                                    <p><%= studio.address %></p>
+                                    <p class="fw-semibold">Deskripsi :</p>
+                                    <p><%= studio.description %></p>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <% }) } %>
+                          </div><!-- End Vertically centered Modal-->
+
+                          <!-- Modal Edit Data -->
+                          <div class="modal fade" id="editModal-<%= studio.id %>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header mb-3">
+                                  <h5 class="modal-title">Update Studio</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <!-- Floating Labels Form -->
+                                  <form class="row g-3" action="/dashboard/studios/updateStudio" method="POST">
+                                    <!-- <div class="col-md-12">
+                                      <div>
+                                        <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control" id="floatingOwnerId" placeholder="Gambar Studio">
+                                        <label for="floatingOwnerId"></label>
+                                      </div>
+                                    </div> -->
+                                    <div class="col-md-12 mb-3">
+                                      <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control">
+                                      <input type="hidden" name="studioId" value="<%= studio.id %>" class="form-control">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" name="image" value="<%= studio.image %>" id="floatingImage" placeholder="Gambar Studio">
+                                        <label for="floatingImage">Gambar Studio</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" name="name" value="<%= studio.name %>" id="floatingName" placeholder="Nama Studio">
+                                        <label for="floatingName">Nama Studio</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                      <div class="form-floating mb-3">
+                                        <select class="form-select" name="category" id="floatingCategory" aria-label="Kategori Studio">
+                                          <option value="Studio Photography">Studio Photography</option>
+                                          <option value="Studio Music">Studio Music</option>
+                                          <option value="Studio Podcast">Studio Podcast</option>
+                                          <option value="Studio Recording">Studio Recording</option>
+                                        </select>
+                                        <label for="floatingCategory">Kategori Studio</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" name="description" value="<%= studio.description %>" id="floatingDesc" placeholder="Deskripsi">
+                                        <label for="floatingDesc">Deskripsi</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                      <div class="form-floating">
+                                        <textarea class="form-control" name="address" placeholder="Alamat" id="floatingAlamat"
+                                          style="height: 100px;"><%= studio.address %></textarea>
+                                        <label for="floatingAlamat">Alamat</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                      <div class="col-md-12">
+                                        <div class="form-floating">
+                                          <input type="number" class="form-control" name="price" value="<%= studio.price %>" id="floatingHarga" placeholder="Harga">
+                                          <label for="floatingHarga">Harga (per Jam)</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- <div class="col-md-3">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingDuration" placeholder="Duration">
+                                        <label for="floatingDuration">Durasi Paket (? Jam)</label>
+                                      </div>
+                                    </div> -->
+                                    <div class="col-md-12 mb-3">
+                                      <div class="form-floating">
+                                        <input type="number" class="form-control" name="room" value="<%= studio.room %>" id="floatingRoom" placeholder="Room">
+                                        <label for="floatingRoom">Ruang (Unit)</label>
+                                      </div>
+                                    </div>
+                                    <div class="text-center">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      <button type="reset" class="btn btn-secondary">Reset</button>
+                                    </div>
+                                  </form><!-- End floating Labels Form -->
+                                </div>
+                              </div>
+                            </div>
+                          </div><!-- End Vertically centered Modal-->
+
+                          <!-- Modal Delete -->
+                          <div class="modal fade" id="deleteModal-<%= studio.id %>" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan !</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Apakah Anda yakin ingin hapus studio dari <b>
+                                      <%= studio.name %>
+                                    </b> ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-outline-primary"
+                                    data-bs-dismiss="modal">Batalkan</button>
+                                  <a href="/dashboard/studios/deleteStudio/<%= studio.id %>" class="btn btn-danger">Hapus</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <% }) } %>
                     </tbody>
                   </table>
                   <!-- End Table with stripped rows -->
@@ -238,27 +359,34 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title">Vertically Centered</h5>
+                          <h5 class="modal-title">Data Studio Baru</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                           <!-- Floating Labels Form -->
-                          <form class="row g-3">
+                          <form class="row g-3" action="/dashboard/studios/createStudio" method="POST">
+                            <!-- <div class="col-md-12">
+                              <div>
+                                <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control" id="floatingOwnerId" placeholder="Gambar Studio">
+                                <label for="floatingOwnerId"></label>
+                              </div>
+                            </div> -->
                             <div class="col-md-12">
+                              <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control">
                               <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingImage" placeholder="Gambar Studio">
+                                <input type="text" class="form-control" name="image" id="floatingImage" placeholder="Gambar Studio">
                                 <label for="floatingImage">Gambar Studio</label>
                               </div>
                             </div>
                             <div class="col-md-12">
                               <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingName" placeholder="Nama Studio">
+                                <input type="text" class="form-control" name="name" id="floatingName" placeholder="Nama Studio">
                                 <label for="floatingName">Nama Studio</label>
                               </div>
                             </div>
                             <div class="col-12">
                               <div class="form-floating mb-3">
-                                <select class="form-select" id="floatingCategory" aria-label="Kategori Studio">
+                                <select class="form-select" name="category" id="floatingCategory" aria-label="Kategori Studio">
                                   <option selected value="Studio Photography">Studio Photography</option>
                                   <option value="Studio Music">Studio Music</option>
                                   <option value="Studio Podcast">Studio Podcast</option>
@@ -269,24 +397,24 @@
                             </div>
                             <div class="col-md-12">
                               <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingDesc" placeholder="Deskripsi">
+                                <input type="text" class="form-control" name="description" id="floatingDesc" placeholder="Deskripsi">
                                 <label for="floatingDesc">Deskripsi</label>
                               </div>
                             </div>
                             <div class="col-12">
                               <div class="form-floating">
-                                <textarea class="form-control" placeholder="Alamat" id="floatingAlamat"
+                                <textarea class="form-control" name="address" placeholder="Alamat" id="floatingAlamat"
                                   style="height: 100px;"></textarea>
                                 <label for="floatingAlamat">Alamat</label>
                               </div>
                             </div>
                             <div class="col-md-6">
-                              <div class="col-md-12">
-                                <div class="form-floating">
-                                  <input type="number" class="form-control" id="floatingHarga" placeholder="Harga">
-                                  <label for="floatingHarga">Harga (per Jam)</label>
-                                </div>
+                              <div class="form-floating">
+                                <input type="number" class="form-control" name="price" id="floatingHarga" placeholder="Harga">
+                                <label for="floatingHarga">Harga (per Jam)</label>
                               </div>
+                              <!-- <div class="col-md-12">
+                              </div> -->
                             </div>
                             <!-- <div class="col-md-3">
                               <div class="form-floating">
@@ -296,7 +424,7 @@
                             </div> -->
                             <div class="col-md-6">
                               <div class="form-floating">
-                                <input type="number" class="form-control" id="floatingRoom" placeholder="Room">
+                                <input type="number" class="form-control" name="room" id="floatingRoom" placeholder="Room">
                                 <label for="floatingRoom">Ruang (Unit)</label>
                               </div>
                             </div>
@@ -326,18 +454,13 @@
 
       <%- include('../../components/footer') %>
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+          <i class="bi bi-arrow-up-short"></i>
+        </a>
 
         <!-- Vendor JS Files -->
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-        <!-- <script src="assets/vendor/apexcharts/apexcharts.min.js"></script> -->
-        <!-- <script src="assets/vendor/chart.js/chart.umd.js"></script> -->
-        <!-- <script src="assets/vendor/echarts/echarts.min.js"></script> -->
-        <!-- <script src="assets/vendor/quill/quill.min.js"></script> -->
-        <!-- <script src="assets/vendor/tinymce/tinymce.min.js"></script> -->
-        <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>

@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>StudioBook Apps</title>
+  <title>Detail Studio Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <!-- <base href="/"> -->
+  <base href="/">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -30,98 +30,150 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/frontSite-style.css" rel="stylesheet">
+
 </head>
 
 <body>
-  <%- include('components/navbarClient') %>
-  <main class="container">
-    <!-- <div>
-      <h1 class="text-center mt-5 mb-5">INI HALAMAN HOME</h1>
-    </div> -->
+  <%- include('../../components/navbarClient') %>
 
-    <section class="section-hero">
-      <div class="row py-4">
-        <div class="left-hero col-lg-7 my-auto">
-          <h1 class="fw-bold">Make Your Moment With Your Favorite <span>Studio</span></h1>
-          <p class="w-75 py-4 fs-4">Our studio is ready to be the best place for you to capture unforgettable moments. Rent immediately and get your best work.</p>
-          <div class="d-flex gap-5">
-            <span class="d-flex gap-2">
-              <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                height="2em"
-                width="1.5em"
-              >
-                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" />
-              </svg>
-              <p class="fs-4 w-75">Capture beautiful moments.</p>
-            </span>
-            <span class="d-flex gap-2">
-              <svg
-                viewBox="0 0 1024 1024"
-                fill="currentColor"
-                height="2em"
-                width="1.5em"
-              >
-                <path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" />
-              </svg>
-              <p class="fs-4 w-75">Creating harmony in every note.</p>
-            </span>
+  <main class="container">
+    <section class="title  mt-5">
+      <div class="row ms-2 mb-4">
+        <div class="breadcrumb col-md-3 align-content-center">
+          <h5 class="fw-light me-1">Beranda /</h5>
+          <h5 class="fw-medium">Detail Studio</h5>
+        </div>
+        <div class="title-studio col-md-7 text-center">
+          <h1 class="fw-semibold"><%= studio.name %></h1>
+          <h6 class="fw-light"><%= studio.address %></h6>
+        </div>
+      </div>
+      <img class="bannerStudio w-100 rounded-4"
+        src="<%= studio.image %>"
+        alt="studio" height="600px">
+    </section>
+
+    <section class="mt-5">
+      <div class="row description">
+        <div class="col-lg-7 p-2">
+          <h4 class="fw-semibold">Deskripsi Studio</h4>
+          <p class="fw-light">
+            <%= studio.description %>
+          </p>
+          <div class="row pe-4 mt-5">
+            <div class="col-lg-12">
+              <ul class="d-flex flex-wrap gap-4">
+                <li>
+                  <img src="assets/img/icon/icons8-traffic-jam-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">Free <span class="fw-light opacity-75">Parking</span></p>
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-pray-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">1 <span class="fw-light opacity-75">Mushola</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-garden-sprinkler-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">2 <span class="fw-light opacity-75">Garden</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-wifi-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">10 <span class="fw-light opacity-75">Mbps/s</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-ac-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">7 <span class="fw-light opacity-75">Unit ready</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-coffee-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">Free <span class="fw-light opacity-75">Drinks</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-toilet-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">2 <span class="fw-light opacity-75">Toilet</span></p>                    
+                </li>
+                <li>
+                  <img src="assets/img/icon/icons8-professional-48.png" alt="">
+                  <p class="fw-medium text-dark mt-2">100% <span class="fw-light opacity-75">Professional</span></p>                    
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="right-hero col-lg-5 justify-content-center">
-          <img src="assets/img/guitar2.png" alt="">
+
+        <div class="col-lg-5 p-2">
+          <div class="box border border-secondary rounded-3">
+            <form action="/detail-reservation" method="POST">
+              <h4 class="fw-semibold fs-5">Mulai Pemesanan Studio</h4>
+              <input type="hidden" value="<%= studio.id %>" name="studioId" id="studioId">
+              <h3 class="fw-semibold text-success fs-2">RP <%= studio.price.toString().slice(0,3) %>K <span class="fw-light fs-3 text-secondary">per jam</span></h3>
+              <input type="hidden" value="<%= studio.price %>" name="priceStudio" id="priceStudio">
+              <input type="hidden" value="0" name="totalPayment" id="totalPayment">
+              <!-- <input type="hidden" value="0" name="fee" id="fee"> -->
+  
+              <p class="mt-4">Berapa lama ingin sewa studio ?</p>
+              <div class="btn-package d-flex">
+                <button type="button" class="fw-bold btn btn-danger" id="btn-minus">-</button>
+                <input class="bg-body-secondary" type="number" value="0" min="1" max="4" name="duration" id="duration" required>
+                <button type="button" class="fw-bold btn btn-success" id="btn-plus">+</button>
+              </div>
+              <p class="mt-4">Pilih Ruang Studio</p>
+              <div class="btn-room d-flex">
+                <button class="btn btn-dark">
+                  <svg
+                    viewBox="4 2 30 25"
+                    fill="currentColor"
+                    height="1.5em"
+                    width="1.5em"
+                  >
+                    <path d="M18 2H6c-1.103 0-2 .897-2 2v17a1 1 0 001 1h14a1 1 0 001-1V4c0-1.103-.897-2-2-2zm0 18H6V4h12v16z" />
+                    <path d="M8 6h3v2H8zm5 0h3v2h-3zm-5 4h3v2H8zm5 .031h3V12h-3zM8 14h3v2H8zm5 0h3v2h-3z" />
+                  </svg>
+                </button>
+                <select class="bg-body-secondary" name="room" id="room">
+
+                  <option value="" selected>Pilih Ruang Studio</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <p class="mt-4">Pilih tanggal</p>
+              <div class="btn-date d-flex">
+                <button class="btn btn-dark">
+                  <svg width="25" height="27" viewBox="0 11 32 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="1" y="3" width="23" height="23" rx="2" stroke="white" stroke-width="2" />
+                    <rect x="5" y="15" width="5" height="5" rx="1" stroke="white" stroke-width="2" />
+                    <rect x="15" y="15" width="5" height="5" rx="1" stroke="white" stroke-width="2" />
+                    <path d="M1 9H24" stroke="white" stroke-width="2" />
+                    <path d="M5 1L5 5" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    <path d="M20 1L20 5" stroke="white" stroke-width="2" stroke-linecap="round" />
+                  </svg>
+                </button>
+                <input class="bg-body-secondary" type="date" name="rentDate" id="" required>
+              </div>
+              <p class="mt-5">Anda akan membayar sewa studio sebesar : <span class="fw-semibold" id="showTotalPrice">Rp0</span> per
+                <span class="fw-semibold" id="hourRentStudio">0 jam</span>
+              </p>
+              <% if (!user) { %>
+                <button type="submit" class="btn btn-primary w-100 p-2" disabled>Lanjut Pembayaran</button>
+                <p class="text-danger mt-2">*Silahkan login dahulu sebelum Anda melakukan pemesanan Studio</p>
+              <% } else { %>
+                <button type="submit" class="btn btn-primary w-100 p-2">Lanjut Pembayaran</button>
+              <% } %>
+            </form>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="facilities">
+    <section class="produk mt-5">
       <div class="d-flex justify-content-between">
-        <p class="fw-semibold fs-5">Fasilitas & Pelayanan</p>
-        <span class="d-flex gap-2">
-          <a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Lihat detail</a>
-          <i class="bi bi-arrow-right"></i>
-        </span>
-      </div>
-      <p class="opacity-75 mb-5">Studio yang tersedia dapat memberikan beberapa fasilitas nyaman, menarik, dan sesuai dengan kebutuhan pelanggan seperti Free WIFI, tersedia tempat ibadah, ruangan AC, dan tentunya ditangani oleh orang-orang yang sudah professional dibidang nya.</p>
-      <div class="facilities-wrapper d-flex justify-content-between">
-        <div class="card bg-body-tertiary p-4 text-center">
-          <img src="assets/img/icon-facilities/ac.png" alt="img-facilities">
-          <p class="fw-semibold mt-4">Ruangan AC</p>
-          <p class="opacity-75">Hampir seluruh studio pada partner kami memiliki ruangan yang dilengkapi dengan AC</p>
-        </div>
-        <div class="card p-4 text-center">
-          <img src="assets/img/icon-facilities/wifi.png" alt="img-facilities">
-          <p class="fw-semibold mt-4">Free WiFi</p>
-          <p class="opacity-75">Lingkungan Studio pada partner kami juga sudah dilengkapi dengan WiFI yang bebas bisa kamu gunakan.</p>
-        </div>
-        <div class="card p-4 text-center">
-          <img src="assets/img/icon-facilities/car.png" alt="img-facilities">
-          <p class="fw-semibold mt-4">Parking Area</p>
-          <p class="opacity-75">Studio yang memiliki area parkir yang cukup luas untuk kamu pelanggan setia kami</p>
-        </div>
-        <div class="card p-4 text-center">
-          <img src="assets/img/icon-facilities/mosque.png" alt="img-facilities">
-          <p class="fw-semibold mt-4">Tempat Ibadah</p>
-          <p class="opacity-75">Kami juga meyediakan tempat ibadah bagi kamu yang muslim.</p>
-        </div>
-        <div class="card p-4 text-center">
-          <img src="assets/img/icon-facilities/other.png" alt="img-facilities">
-          <p class="fw-semibold mt-4">Lainnya</p>
-          <p class="opacity-75">Masih banyak fasilitas lainnya yang dapat digunakan. Jadi tunggu apalagi. Ayo cari studio mu</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="produk">
-      <div class="d-flex justify-content-between">
-        <p class="fw-semibold fs-5">Beragam Studio Menarik Yang Anda Cari</p>
+        <p class="fw-medium fs-5">Studio Lainnya</p>
         <span class="d-flex gap-2">
           <a href="#" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Lihat studio lain</a>
           <i class="bi bi-arrow-right"></i>
         </span>
       </div>
-      <p class="opacity-75 mb-5">Disini kamu dapat menemukan berbagai studio yang dapat memenuhi kebutuhan mu untuk melancarkan acara pesta, kebutuhan foto professional dan lainnya. Disini Anda dapat menemukan berbagai studio seperti studio musik, studio fotografi, studio live streaming, dan lainnya.s</p>
       <div class="container produk-wrapper">
         <!-- <div class="row1">
           <div class="toggle-slider">
@@ -317,19 +369,39 @@
       </div>
     </section>
 
-    <section class="subcribe">
-      <div class="subcribe-wrapper bg-dark-subtle d-flex gap-4 rounded-5">
-        <div class="left-subcribe pt-4">
-          <h3>Ingin mendapatkan informasi terbaru mengenai studio baru di wilayah kamu.</h3>
-          <p class="fs-4 mt-3 opacity-75">Ayo kamu bisa bergabung kedalam layanan email kami. Gabung segera dan banyak keuntungan nya lohhh.</p>
-          <div class="btn-group mt-5 d-flex gap-3">
-            <input class="flex-grow-1 rounded-3 border-0 p-3" type="email" name="email" id="email" placeholder="Masukkan email Anda disini">
-            <button class="flex-grow-0 rounded-3 px-4 btn btn-primary">Submit</button>
-          </div>
+    <section class="reviews p-2">
+      <div class="row">
+        <div class="col-lg-4 me-4">
+          <img src="assets/img/foto_keluarga.png" alt="">
         </div>
-        <img src="assets/img/man-subcribe-email.png" alt="">
+        <div class="col-lg-7 my-auto">
+          <h2 class="fw-medium mb-5">Pelanggan Bahagia</h2>
+          <span class="d-flex gap-2 mb-3">
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0489 1.67705C14.3483 0.755738 15.6517 0.75574 15.9511 1.67705L18.6484 9.97847C18.7822 10.3905 19.1662 10.6695 19.5994 10.6695H28.328C29.2968 10.6695 29.6995 11.9091 28.9158 12.4785L21.8542 17.609C21.5037 17.8637 21.3571 18.315 21.4909 18.7271L24.1882 27.0285C24.4876 27.9498 23.4331 28.7159 22.6494 28.1465L15.5878 23.016C15.2373 22.7613 14.7627 22.7613 14.4122 23.016L7.3506 28.1465C6.56689 28.7159 5.51241 27.9498 5.81176 27.0285L8.50906 18.7271C8.64293 18.315 8.49627 17.8637 8.14579 17.609L1.08417 12.4785C0.300457 11.9091 0.703234 10.6695 1.67196 10.6695H10.4006C10.8338 10.6695 11.2178 10.3905 11.3516 9.97847L14.0489 1.67705Z" fill="#FFCC47"/>
+            </svg>
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0489 1.67705C14.3483 0.755738 15.6517 0.75574 15.9511 1.67705L18.6484 9.97847C18.7822 10.3905 19.1662 10.6695 19.5994 10.6695H28.328C29.2968 10.6695 29.6995 11.9091 28.9158 12.4785L21.8542 17.609C21.5037 17.8637 21.3571 18.315 21.4909 18.7271L24.1882 27.0285C24.4876 27.9498 23.4331 28.7159 22.6494 28.1465L15.5878 23.016C15.2373 22.7613 14.7627 22.7613 14.4122 23.016L7.3506 28.1465C6.56689 28.7159 5.51241 27.9498 5.81176 27.0285L8.50906 18.7271C8.64293 18.315 8.49627 17.8637 8.14579 17.609L1.08417 12.4785C0.300457 11.9091 0.703234 10.6695 1.67196 10.6695H10.4006C10.8338 10.6695 11.2178 10.3905 11.3516 9.97847L14.0489 1.67705Z" fill="#FFCC47"/>
+            </svg>
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0489 1.67705C14.3483 0.755738 15.6517 0.75574 15.9511 1.67705L18.6484 9.97847C18.7822 10.3905 19.1662 10.6695 19.5994 10.6695H28.328C29.2968 10.6695 29.6995 11.9091 28.9158 12.4785L21.8542 17.609C21.5037 17.8637 21.3571 18.315 21.4909 18.7271L24.1882 27.0285C24.4876 27.9498 23.4331 28.7159 22.6494 28.1465L15.5878 23.016C15.2373 22.7613 14.7627 22.7613 14.4122 23.016L7.3506 28.1465C6.56689 28.7159 5.51241 27.9498 5.81176 27.0285L8.50906 18.7271C8.64293 18.315 8.49627 17.8637 8.14579 17.609L1.08417 12.4785C0.300457 11.9091 0.703234 10.6695 1.67196 10.6695H10.4006C10.8338 10.6695 11.2178 10.3905 11.3516 9.97847L14.0489 1.67705Z" fill="#FFCC47"/>
+            </svg>
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0489 1.67705C14.3483 0.755738 15.6517 0.75574 15.9511 1.67705L18.6484 9.97847C18.7822 10.3905 19.1662 10.6695 19.5994 10.6695H28.328C29.2968 10.6695 29.6995 11.9091 28.9158 12.4785L21.8542 17.609C21.5037 17.8637 21.3571 18.315 21.4909 18.7271L24.1882 27.0285C24.4876 27.9498 23.4331 28.7159 22.6494 28.1465L15.5878 23.016C15.2373 22.7613 14.7627 22.7613 14.4122 23.016L7.3506 28.1465C6.56689 28.7159 5.51241 27.9498 5.81176 27.0285L8.50906 18.7271C8.64293 18.315 8.49627 17.8637 8.14579 17.609L1.08417 12.4785C0.300457 11.9091 0.703234 10.6695 1.67196 10.6695H10.4006C10.8338 10.6695 11.2178 10.3905 11.3516 9.97847L14.0489 1.67705Z" fill="#FFCC47"/>
+            </svg>
+            <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.0489 1.67705C14.3483 0.755738 15.6517 0.75574 15.9511 1.67705L18.6484 9.97847C18.7822 10.3905 19.1662 10.6695 19.5994 10.6695H28.328C29.2968 10.6695 29.6995 11.9091 28.9158 12.4785L21.8542 17.609C21.5037 17.8637 21.3571 18.315 21.4909 18.7271L24.1882 27.0285C24.4876 27.9498 23.4331 28.7159 22.6494 28.1465L15.5878 23.016C15.2373 22.7613 14.7627 22.7613 14.4122 23.016L7.3506 28.1465C6.56689 28.7159 5.51241 27.9498 5.81176 27.0285L8.50906 18.7271C8.64293 18.315 8.49627 17.8637 8.14579 17.609L1.08417 12.4785C0.300457 11.9091 0.703234 10.6695 1.67196 10.6695H10.4006C10.8338 10.6695 11.2178 10.3905 11.3516 9.97847L14.0489 1.67705Z" fill="#FFCC47"/>
+            </svg>
+          </span>
+          <p class="fs-2">Studio nya nyaman & fasilitas lengkap. <br> Suatu saat nanti aku mau datang lagi.</p>
+          <p class="fw-light opacity-50 mb-5">Anggi Masama, Turis Lokal, Malioboro Yogyakarta</p>
+
+          <a href="#" class="btn btn-primary px-5 p-2 shadow-lg">Baca review lainnya</a>
+        </div>
       </div>
     </section>
+
+    <!-- <div style="height: 100vh;"></div> -->
   </main><!-- End #main -->
 
   <!-- FOOTER -->
