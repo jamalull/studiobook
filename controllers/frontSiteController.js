@@ -1,0 +1,178 @@
+const { PrismaClient } = require("@prisma/client");
+const { v4: uuidv4 } = require('uuid');
+
+class FrontSiteController {
+  constructor(){
+    this.prisma = new PrismaClient();
+  }
+
+  getHome = (req, res) => {
+    res.render("home", {user: req.user});
+  };
+
+  getDashboard = (req, res) => {
+    res.render("pages/admin/dashboardHome", {user: req.user});
+  };
+
+  // getPaymentPage = (req, res) => {
+  //   res.render("pages/client/paymentPage", {user: req.user});
+  // };
+  
+  getReservationPage = async (req, res) => {
+    try {
+      // const studioId = req.params.studioId;
+      const payload = req.body;
+      const studioId = payload.studioId;
+      console.log({payload});
+      
+      const studio = await this.prisma.studio.findUnique({
+        where: { id: parseInt(studioId) },
+      });
+
+      if (!studio) {
+        return res.status(404).send("Studio Not Found !");
+        // return res.send("Studio Not Found !");
+      }
+    
+      res.render("pages/client/reservationPage", {payload, studio, user: req.user});
+    } catch (error) {
+      res.send(error.message);
+    }
+  };
+
+  getPaymentPage = async (req,res) => {
+    const transactionId = req.params.transactionId;
+
+    const transaction = await this.prisma.transaction.findUnique({
+      where : {id : transactionId}
+    });
+    
+    if (!transaction) {
+      return res.status(404).send("Transaction data not found");
+    }
+
+    res.render("pages/client/paymentPage", {transaction, user: req.user});
+  }
+
+  createPayment = async (req, res) => {
+    try {
+
+      // const id = uuidv4();
+      const payload = req.body;
+      // payload.userId = parseInt(payload.userId);
+      // payload.reservationId = parseInt(payload.reservationId);
+      // payload.totalPayment = parseInt(payload.totalPayment);
+      
+      // const fee = payload.totalPayment * 0.1; //tax fee 10%
+      // const total = payload.totalPayment + fee;
+
+
+      await this.prisma.transaction.update({
+        where: {
+          id: payload.reservationId,
+        },
+        data: {
+          // id : id,
+          // reservationId : payload.reservationId,
+          // userId : payload.userId,
+          photoPayment : payload.photoPayment,
+          bank : payload.bank,
+          sender : payload.sender,
+          // fee : fee,
+          // totalPayment : total,
+        },
+      });
+      res.redirect("/");
+    } catch (error) {
+      res.send(error.message);
+    }
+  };
+
+  createReservation = async (req, res) => {
+    try {
+      const reservationId = uuidv4();
+      const transactionId = uuidv4();
+      const payload = req.body;
+      payload.userId = parseInt(payload.userId);
+      payload.studioId = parseInt(payload.studioId);
+      payload.rentDate = new Date(payload.rentDate);
+      payload.duration = parseInt(payload.duration);
+      payload.room = parseInt(payload.room);
+      payload.totalPayment = parseInt(payload.totalPayment);
+
+      const fee = payload.totalPayment * 0.1; //tax fee 10%
+      const total = payload.totalPayment + fee;
+
+      await this.prisma.reservation.create({
+        // data: payload,
+        data: {
+          id : reservationId,
+          userId : payload.userId,
+          studioId : payload.studioId,
+          duration : payload.duration,
+          room : payload.room,
+          rentDate : payload.rentDate,
+          notes : payload.notes,
+        },
+      });
+
+      await this.prisma.transaction.create({
+        // data: payload,
+        data: {
+          id : transactionId,
+          reservationId : reservationId,
+          userId : payload.userId,
+          // photoPayment : payload.photoPayment,
+          // bank : payload.bank,
+          // sender : payload.sender,
+          fee : fee,
+          totalPayment : total,
+        },
+      });
+      // res.render("pages/client/paymentPage", {payload, user: req.user});
+      res.redirect("/payment/"+ transactionId);
+    } catch (error) {
+      res.send(error.message);
+    }
+  };
+
+  getAllListStudio = async (req, res) => {
+    const studios = await this.prisma.studio.findMany();
+    // const users = await this.prisma.user.findMany();
+
+    res.render("pages/client/listStudioPage", { studios, user: req.user });
+  };
+  getAllListStudio2 = async (req, res) => {
+    const studios = await this.prisma.studio.findMany();
+    // const users = await this.prisma.user.findMany();
+
+    res.render("pages/client/listStudioPage2", { studios, user: req.user });
+  };
+  getAllListStudio3 = async (req, res) => {
+    const studios = await this.prisma.studio.findMany();
+    // const users = await this.prisma.user.findMany();
+
+    res.render("pages/client/listStudioPage3", { studios, user: req.user });
+  };
+  getDetailStudio = async (req, res) => {
+    try {
+      const studioId = req.params.studioId;
+      const studio = await this.prisma.studio.findUnique({
+        where: { id: parseInt(studioId) },
+      });
+
+      if (!studio) {
+        return res.status(404).send("Studio Not Found !");
+        // return res.send("Studio Not Found !");
+      }
+
+      res.render("pages/client/detailStudioPage", { studio, user: req.user });
+    } catch (error) {
+      res.send(error.message);
+    }
+  };
+
+}
+
+
+module.exports = new FrontSiteController();
