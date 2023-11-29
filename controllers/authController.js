@@ -4,15 +4,7 @@ class AuthController {
   constructor() {
     this.prisma = new PrismaClient();
   }
-
-  // getHome = (req, res) => {
-  //   res.render("home", {user: req.user});
-  // };
-
-  // getDashboard = (req, res) => {
-  //   res.render("pages/admin/dashboardHome", {user: req.user});
-  // };
-
+  
   getLogin = (req, res) => {
     // res.render("login");
     res.render("authPage");

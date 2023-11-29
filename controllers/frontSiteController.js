@@ -14,6 +14,33 @@ class FrontSiteController {
     res.render("pages/admin/dashboardHome", {user: req.user});
   };
 
+  getHistoryReservations = async (req, res) => { 
+    const reservations = await this.prisma.reservation.findMany({
+      include: {
+        studio : true
+      },
+    });
+    // console.log({reservations});
+    return res.render("pages/client/myReservations", {reservations ,user: req.user});
+  };
+
+  getDetailTiketPage = async (req, res) => { 
+    const id = req.params.reservationId;
+    const transaction = await this.prisma.transaction.findFirst({
+      where : {reservationId : id},
+      include: {
+        user        : true,
+        reservation : {
+          include : {
+            studio : true
+          }
+        },
+      },
+    });
+    console.log({transaction});
+    return res.render("pages/client/detailTiket", {transaction ,user: req.user});
+  };
+
   // getPaymentPage = (req, res) => {
   //   res.render("pages/client/paymentPage", {user: req.user});
   // };

@@ -5,10 +5,10 @@ class ReservationController {
     this.prisma = new PrismaClient();
   }
 
-  // getReservationPage = (req, res) => {
+  // getReservationPage = async (req, res) => {
+  //   const reservations = await this.prisma.user.findMany();
 
-
-  //   res.render("reservationPage", {user: req.user});
+  //   res.render("pages/client/reservationPage", {user: req.user});
   // };
 
 }

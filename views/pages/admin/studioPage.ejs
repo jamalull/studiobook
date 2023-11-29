@@ -216,16 +216,16 @@
                                   <h4 class="fw-semibold text-capitalize"><%= studio.name%></h4>
                                   <div class="d-flex justify-content-between p-2">
                                     <div>
-                                      <p><i class="fa-regular fa-building"></i> <%= studio.category%></p>
-                                      <p><i class="fa-solid fa-coins"></i> <%=  new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(studio.price); %></p>
+                                      <p><i class="bi bi-building"></i> <%= studio.category%></p>
+                                      <p><i class="bi bi-cash-coin"></i> <%=  new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(studio.price); %></p>
                                     </div>
                                     <div>
-                                      <p><i class="fa-solid fa-door-open"></i> <%= studio.room %> Ruangan Tersedia</p>
-                                      <p><i class="fa-regular fa-star-half-stroke"></i> 4.7/5.0 <%= studio.rating %> Reviews</p>
+                                      <p><i class="bi bi-door-open"></i> <%= studio.room %> Ruangan Tersedia</p>
+                                      <p><i class="bi bi-star-half"></i> 4.7/5.0 <%= studio.rating %> Reviews</p>
                                     </div>
                                     <div>
-                                      <p><i class="fa-regular fa-clock"></i> Dibuat : <%= studio.createdAt.toDateString() %></p>
-                                      <p><i class="fa-solid fa-clock-rotate-left"></i> Diperbarui : <%= studio.updatedAt.toDateString() %></p>
+                                      <p><i class="bi bi-clock"></i> Dibuat : <%= studio.createdAt.toDateString() %></p>
+                                      <p><i class="bi bi-clock-history"></i> Update : <%= studio.updatedAt.toDateString() %></p>
                                     </div>
                                   </div>
                                   <img class="detailImgStudio " src="<%= studio.image %>" alt="">
@@ -364,7 +364,7 @@
                         </div>
                         <div class="modal-body">
                           <!-- Floating Labels Form -->
-                          <form class="row g-3" action="/dashboard/studios/createStudio" method="POST">
+                          <form class="row g-3" enctype="multipart/form-data" action="/dashboard/studios/createStudio" method="POST">
                             <!-- <div class="col-md-12">
                               <div>
                                 <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control" id="floatingOwnerId" placeholder="Gambar Studio">
@@ -374,7 +374,7 @@
                             <div class="col-md-12">
                               <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control">
                               <div class="form-floating">
-                                <input type="text" class="form-control" name="image" id="floatingImage" placeholder="Gambar Studio">
+                                <input type="file" class="form-control" name="image" id="floatingImage" placeholder="Gambar Studio">
                                 <label for="floatingImage">Gambar Studio</label>
                               </div>
                             </div>
