@@ -10,53 +10,100 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users{
-  id            Int       @id @default(autoincrement())
-  username      String
-  role          Int
-  email         String
-  phone_call    String
-  password      String
-  reservations  reservation[]
-  transactions  transaction[]
+model User{
+  id              Int               @id @default(autoincrement())
+  username        String            @unique
+  role            Role              @default(CLIENT)
+  email           String?
+  phone           String?
+  password        String
+  reservations    Reservation[]
+  transactions    Transaction[]
+  studios         Studio[]
+  review          Review[]
+
+  @@map("users")
 }
 
-model studio{
-  id                Int    @id @default(autoincrement())
-  name              String
-  description       String
-  address           String
-  price             Int
-  rating            Int
-  room_studio       Int
-  image_studio      String
-  catergory_studio  String
-  duration_studio   Int
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
-  reservations      reservation[]
-}
-
-model reservation{
-  id                Int     @id @default(autoincrement())
-  studio            studio   @relation(fields: [studioId], references: [id])
-  studioId          Int
-  status            String
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
-  user              users    @relation(fields: [userId], references: [id])
-  userId			  		Int
-  transactions  transaction[]
-}
-
-model transaction{
+model Studio{
   id                Int           @id @default(autoincrement())
-  reservation       reservation   @relation(fields:[reservationId],references:[id])
-  reservationId     Int
-  user              users         @relation(fields: [userId], references: [id])
+  ownerId           Int
+  user              User          @relation(fields: [ownerId], references: [id])
+  image             String
+  name              String        //Default String in prisma = varchar(191)
+  description       String        @db.Text // use @db.Text for = varchar(60000)
+  address           String        @db.Text
+  price             Int
+  category          String
+  // package           Int
+  rating            Int?          //its mean rating can be nullable. Its optional
+  room              Int
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  reservations      Reservation[]
+  reviews           Review[]
+
+  @@map("studios")
+}
+
+model Reservation{
+  // id                Int          @id @default(autoincrement())
+  id                String       @id @default(uuid())
   userId			  		Int
-  fee               Int
-  total_payment     Int
+  studioId          Int
+  room              Int
+  duration          Int
+  status            Status       @default(PENDING)      
+  notes             String?
+  rentDate          DateTime     @db.Date
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+  user              User         @relation(fields: [userId], references: [id])
+  studio            Studio       @relation(fields: [studioId], references: [id])
+  transactions      Transaction[]
+
+  @@map("reservations")
+}
+
+model Transaction{
+  // id                Int           @id @default(autoincrement())
+  id                String        @id @default(uuid())
+  // reservationId     Int
+  reservationId     String
+  reservation       Reservation   @relation(fields:[reservationId],references:[id])
+  user              User          @relation(fields: [userId], references: [id])
+  userId			  		Int
+  photoPayment      String?
+  bank              String?
+  sender            String?
+  fee               Int           
+  totalPayment      Int
   createdAt					DateTime			@default(now())
   updatedAt         DateTime      @updatedAt
+
+  @@map("transactions")
+}
+
+model Review{
+
+  id          Int         @id @default(autoincrement())
+  userId      Int         
+  studioId    Int      
+  studio      Studio      @relation(fields: [studioId], references: [id])
+  user        User        @relation(fields: [userId], references: [id])
+  testimoni   String?     @db.Text
+  rating      Int
+
+  @@map("reviews")
+}
+
+enum Role {
+  OWNER
+  CLIENT
+}
+enum Status {
+  PENDING
+  AKTIF
+  DIBATALKAN
+  SELESAI
 }
