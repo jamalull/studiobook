@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --main-font: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #e6e6e6;
+  font-family: var(--main-font);
+  --text-blue : #3252DF;
+  --text-darkblue : #152C5B;
+}
+
+ul {
+	list-style-type: none;
+  padding: 0;
+}
+.navbar-nav .nav-item a {
+  color: var(--text-darkblue);
+}
+.navbar-nav .nav-item a:hover {
+  color: var(--text-blue);
+}
+
+
+/*--------------------------------------------------------------
+# Home Page
+--------------------------------------------------------------*/
+/* Facilities Section */
+
+.facilities .facilities-wrapper .card {
+  max-width: 15rem;
+  min-width: 15rem;
+  border-radius: 8px;
+  background: #F8F9FA;
+  box-shadow: -1px 2px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.facilities .facilities-wrapper .card img{
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+# List Studio Page
+--------------------------------------------------------------*/
+/* Search Studio Section */
+/* .search-studio {
+  height: 100vh;
+  position: relative;
+} */
+.search-studio {
+  height: 50vh;
+  background-image:
+    linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(26, 19, 117, 0.73)),
+    url('../img/Studio-Foto.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.search-studio .box-search {
+  background-color: rgba(233, 234, 238, 0.70);
+  width: fit-content;
+  position: relative;
+  top: 10rem;
+}
+.search-studio .box-search select, 
+.search-studio .box-search input {
+  border: none;
+  /* width: 10rem; */
+}
+
+/* Card of Studio */ 
+.card-produk2 {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 20px;
+  max-width: 250px;
+  text-align: right;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.card-produk2 img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  display: block; /* Membuat gambar berada di tengah */
+  margin: 0 auto; /* Membuat gambar berada di tengah */
+}
+
+.info-title {
+  display: flex; /* Menggunakan Flexbox */
+  justify-content: space-between; /* Menjadikan elemen dalam "title-card" sejajar */
+  align-items: center; /* Menggunakan Flexbox untuk pemusatan vertikal */
+  /* margin: 10 0; */
+}
+
+.info-title h1 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.star2 {
+  margin-left: 10px; /* Memberikan jarak kiri agar sejajar dengan judul */
+  color: #ffc107;
+  padding: 10px 0 0 0;
+}
+
+/* Styling body section */
+.body-card2 {
+  /* margin: 10px 0; */
+  font-size: 14px;
+  text-align: left;
+  /* padding: 10px 0 0 0; */
+}
+.body-card2 p {
+  margin: 0;
+}
+
+.info-location {
+  text-align: left;
+  width: 200px;
+  height: 20px;
+  overflow: hidden;
+}
+.studio2 {
+  padding-left: 5px;
+}
+.studio2 span {
+  color: gray;
+}
+.price-wrapper2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-wrapper2 p {
+  margin: 0;
+}
+/* Styling button section */
+.btn-produk2 {
+  margin-top: 15px;
+}
+.btn-produk2 a {
+  background-color: #29353c;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn-produk2 a:hover {
+  background-color: #768a96;
+}
+
+.swiper-wrapper2, .list-studio {
+  display: flex; /* Membuat elemen-elemen di dalamnya tampil secara horizontal (sejajar) */
+  flex-wrap: wrap; /* Jika jumlah elemen melebihi lebar, elemen-elemen akan pindah ke baris baru */
+  gap: 20px; /* Jarak antara elemen-elemen */
+  justify-content: center; /* Membuat elemen-elemen rata kiri */
+}
+/* End Card of Studio */ 
+
+/*--------------------------------------------------------------
+# Detail Studio Page
+--------------------------------------------------------------*/
+/* Section Hero */
+.right-hero img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-package button,
+.btn-room button,
+.btn-date button {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.btn-package input {
+  /* width: 210px; */
+  text-align: center;
+  border: none;
+}
+
+.btn-room select,
+.btn-date input {
+  width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  border: none;
+}
+
+/* Section Reviews */
+.reviews {
+  margin: 100px 0;
+}
+.reviews .left-reviews img {
+  width: 100%;
+  height: auto;
+}
+
+/*Produk start */
+.produk, .subcribe, .facilities {
+  margin-top: 100px;
+}
+.container .produk-wrapper{
+  max-width: 1400px;
+}
+.produk .produk-wrapper {
+  margin: auto;
+}
+.produk-wrapper .row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row1 .label-produk {
+  font-size: 20px;
+  font-family: var(--main-font);
+  font-weight: 700;
+  color: #29353c;
+}
+
+.row1 .heading-produk {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: var(--main-font);
+  color: #29353c;
+  margin-top: 10px;
+}
+.row1 .toggle-slider i {
+  font-size: 2rem;
+  color: #29353c;
+  cursor: pointer;
+}
+
+.produk-wrapper .row2 {
+  margin-bottom: 50px;
+}
+
+.produk-wrapper .card-produk, .list-studio .studio-wrapper {
+  position: relative;
+  width: 300px;
+  border-radius: 10px;
+  overflow-y: hidden;
+} 
+.list-studio .studio-wrapper .photo-studio {
+  width: 300px;
+  height: 300px;
+}
+.row2 .detail-produk, .list-studio .studio-wrapper .details {
+  background-color: #ffffff37;
+  position: absolute;
+  bottom: -50%;
+  width: 90%;
+  height: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 13px;
+  border-radius: 20px;
+  border: 1.5px solid #e6e6e6;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 2px 10px #768a9674;
+  transition: 0.5s ease-in-out;
+}
+
+.card-produk:hover .detail-produk, .list-studio .studio-wrapper:hover .details {
+  bottom: 15px;
+  transition: 0.5s ease-in-out;
+}
+
+.detail-produk .kategori {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kategori .label-kategori, .details div .category {
+  padding: 3px 10px;
+  background-color: #29353c;
+  color: #e6e6e6;
+  border-radius: 5px;
+}
+
+.kategori .price, .details div .price {
+  background-color: #768a96;
+  color: #e6e6e6;
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.detail-produk .title-card h1, .title-studio {
+  font-size: 25px;
+  font-size: 600;
+  font-family: var(--main-font);
+  color: #000000;
+} 
+.detail-produk .review, .details .review {
+  display: flex;
+  gap: 10px;
+} 
+.review i {
+  color: rgb(250, 217, 0);
+} 
+.details .desc-studio {
+  margin: 0;
+} 
+.detail-produk .body-card, .details .desc-studio {
+  max-height: 70px;
+  overflow: hidden;
+}
+.detail-produk .btn-produk, .details .btn-produk{
+  background-color: #fff;
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 50px;
+}
+.detail-produk .btn-produk a, .details .btn-produk a{
+  text-decoration: none;
+  color: #000000;
+} 
+/*Produk end */
+
+
+/*--------------------------------------------------------------
+# Reservations Detail Page
+--------------------------------------------------------------*/
+.left-reservations,.left-payment {
+  /* padding: 0 auto; */
+  border-right: 1px solid  #b6a8a8;
+}
+.right-reservations,.right-payment {
+  padding-left: 10rem;
+}
+.img-success {
+  margin: 0 auto;
+  width: 18rem;
+}
+.line-success {
+  width: 230px;
+  top: 12px;
+  z-index: -1;
+}
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background: #b6a8a8;
+  /* background: #4154f1; */
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #a49c9c;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (min-width:468px) {
+  .box {
+    padding: 60px 84px;
+  }
+  .btn-package input {
+    width: 210px;
+  }
+  .description p {
+    padding-right: 50px;
+  }
+  .subcribe .subcribe-wrapper {
+    padding: 0 48px;
+    padding-top: 48px;
+  }
+}
+@media screen and (max-width:468px) {
+  .box {
+    padding: 10px;
+  }
+  .btn-package input {
+    width: 150px;
+  }
+  .bannerStudio {
+    height: 400px;
+  }
+  .breadcrumb h5 {
+    font-size: small;
+  }.subcribe .subcribe-wrapper {
+    padding: 0 12px; 
+  }
+  .subcribe .subcribe-wrapper .left-subcribe .btn-group {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .facilities .facilities-wrapper{
+    overflow-x: scroll;
+    gap: 15px;
+  }
+  .facilities .facilities-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .subcribe .subcribe-wrapper img {
+    display: none;
+  }
+  .subcribe .subcribe-wrapper {
+    padding-bottom: 48px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .description {
+    padding: 0 20px;
+  }
+  .search-studio .box-search {
+    display: flex;
+    flex-direction: column;
+    top: 20px;
+  }
+  .search-studio .box-search select, 
+  .search-studio .box-search input {
+    border: none;
+    width: 30rem;
+  }
+}
+/*--------------------------------------------------------------
+# END Back to top button
+--------------------------------------------------------------*/
