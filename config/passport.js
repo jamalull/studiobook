@@ -83,10 +83,10 @@ module.exports = function (passport) {
               const hash = await bcrypt.hash(password, salt);
               const newUser = await prisma.user.create({
                 data: {
-                  name: req.body.name,
+                  // name: req.body.name,
                   username,
                   password: hash,
-                  role: 2,
+                  // role: 2,
                 },
               });
               return done(null, newUser);

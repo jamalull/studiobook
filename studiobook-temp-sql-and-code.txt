@@ -1,0 +1,22 @@
+INSERT INTO `users` (`id`, `username`, `role`, `email`, `phone`, `password`) VALUES
+(1, 'admin2', 'OWNER', NULL, NULL, '$2b$10$HkgUsiuIIvbD2UUdVO7JMeE34DWGk.3XQFbJj/8O/Rw/lP7pspyW6');
+INSERT INTO `users` (`id`, `username`, `role`, `email`, `phone`, `password`) VALUES
+(2, 'admin', 'CLIENT', NULL, NULL, '$2b$10$velZHZkmZyb/0VRRxVvMtuj1aoUhAaVCauhldGUhhWjst7XK2Rmuu');
+
+
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(1, 1, 'https://vocasia.id/blog/wp-content/uploads/2021/10/Studio-foto-jakarta.jpg', 'Signe Studio', 'Alias nemo tempora Alias nemo tempora dAlias nemo tempora dAlias nemo tempora tempora tempora tempora tempora tempora ', 'Depok, Jawa Barat', 258000, 'Studio Photography', NULL, 10, '2023-11-04 15:14:26.061', '2023-11-17 13:02:46.611');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(2, 1, 'https://forumkamera.com/wp-content/uploads/2023/04/Studio-Foto.jpg', 'Mcdonald Studio', 'Rerum aliquid quis eRerum aliquid quis eRerum aliquid quis eRerum aliquid quis eRerum aliquid quis e', 'Cikeas, Bogor', 350000, 'Studio Photography', NULL, 22, '2023-11-04 18:19:39.471', '2023-11-17 13:39:45.112');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(4, 1, 'https://sardanagroup.co.id/HP/production/images/news/Studio%20musik%20di%20Medan.jpg', 'Prefixeal Studio', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rem doloribus pariatur inventore ipsum velit?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rem doloribus pariatur inventore ipsum velit?', 250000, 'Studio Podcast', NULL, 30, '2023-11-05 13:33:19.619', '2023-11-05 13:35:02.016');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(5, 1, 'https://jsp.co.id/wp-content/uploads/2018/08/sewa-studio-foto-murah-jakarta-2.jpg', 'Melodie Studio', 'In id non sapiente q In id non sapiente qIn id non sapiente qIn id non sapiente qIn id non sapiente q', 'JIS, Jakarta Barat', 250000, 'Studio Photography', NULL, 2, '2023-11-17 13:02:21.353', '2023-11-17 13:02:21.353'),
+(6, 1, 'https://jsp.co.id/wp-content/uploads/2018/07/UPPER-LEVEL-STUDIO..jpg', 'Guinevere Studio', 'Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id ', 'Kemang, Jakarta Selatan', 300000, 'Studio Photography', NULL, 6, '2023-11-17 13:04:24.628', '2023-11-17 13:04:24.628'),
+(7, 1, 'https://soundcorners.com/wp-content/uploads/2018/10/Studio-A-1024x683.jpg', 'Ulysses Studio', 'Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint ', 'SCBD, Jakarta Pusat', 540000, 'Studio Music', NULL, 3, '2023-11-17 13:30:10.554', '2023-11-17 13:30:10.554'),
+(8, 1, 'https://cdnaz.cekaja.com/media/2020/02/360_Artikel-CA20_studio-band-terbaik-di-jakarta.jpg', 'Tucker Studio', 'Adipisicing perferenAdipisicing perferenAdipisicing perferenAdipisicing perferenAdipisicing perferen', 'Sudirman, Jakarta Pusat', 400000, 'Studio Music', NULL, 10, '2023-11-17 13:31:29.847', '2023-11-17 13:31:29.847'),
+(9, 1, 'https://2.bp.blogspot.com/-p9WYEaQTEzg/W_GV1rxl_iI/AAAAAAAAC7g/o_K4oyMCwvYcJ_GSoanSCr62MPGUE-FFgCLcBGAs/s1600/Ini-Tips-Memulai-Usaha-Studio-Musik-Dengan-Modal-Kecil.jpg', 'Ursa Studio', 'Ut est labore evenieUt est labore evenieUt est labore evenieUt est labore evenieUt est labore evenie', 'Cibiru, Bandung', 164000, 'Studio Music', NULL, 20, '2023-11-17 13:38:42.446', '2023-11-17 13:38:42.446');
+
+
+
+
