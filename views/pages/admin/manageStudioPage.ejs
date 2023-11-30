@@ -114,7 +114,7 @@
                   <!-- Table with stripped rows -->
                   <table class="table datatable">
                     <thead>
-                      <tr class="text-center">
+                      <tr>
                         <!-- <th scope="col">Studio ID</th> -->
                         <th scope="col">Gambar</th>
                         <th scope="col">Nama</th>
@@ -168,7 +168,7 @@
                           <% studios.forEach((studio, key)=> { %>
                             <tr>
                               <td>
-                                <img class="imageStudio" src="<%= studio.image %>" alt="img-studio" >
+                                <img class="imageStudio" src="upload/images/studio/<%= studio.image %>" alt="img-studio" >
                               </td>
                               <td>
                                 <%= studio.name %>
@@ -228,7 +228,7 @@
                                       <p><i class="bi bi-clock-history"></i> Update : <%= studio.updatedAt.toDateString() %></p>
                                     </div>
                                   </div>
-                                  <img class="detailImgStudio " src="<%= studio.image %>" alt="">
+                                  <img class="detailImgStudio " src="upload/images/studio/<%= studio.image %>" alt="image-studio">
                                   
                                   <div class="p-2">
                                     <p class="fw-semibold">Alamat :</p>
@@ -261,10 +261,10 @@
                                     <div class="col-md-12 mb-3">
                                       <input type="hidden" name="ownerId" value="<%= user.id %>" class="form-control">
                                       <input type="hidden" name="studioId" value="<%= studio.id %>" class="form-control">
-                                      <div class="form-floating">
+                                      <!-- <div class="form-floating">
                                         <input type="text" class="form-control" name="image" value="<%= studio.image %>" id="floatingImage" placeholder="Gambar Studio">
                                         <label for="floatingImage">Gambar Studio</label>
-                                      </div>
+                                      </div> -->
                                     </div>
                                     <div class="col-md-12 mb-3">
                                       <div class="form-floating">

@@ -70,7 +70,7 @@
     <div class="list-studio my-5">
       <% studios.forEach((studio, key) => { %>
         <div class="studio-wrapper">
-          <img class="photo-studio" src="<%= studio.image %>" alt="" />
+          <img class="photo-studio" src="upload/images/studio/<%= studio.image %>" alt="" />
           <!-- <img src="assets/img/music1.jpg" alt="" /> -->
           <div class="details">
             <div class="d-flex justify-content-between">
@@ -90,31 +90,6 @@
         </div>
       <% }); %>
     </div>
-    
-    
-    <!-- <div class="swiper-wrapper2">
-      <% studios.forEach((studio, key) => { %>
-        <div class="card-produk2">
-        <img src="<%= studio.image %>" alt="" />
-        <div class="detail-produk2">
-          <div class="info-title">
-            <h1><%= studio.name %></h1>
-            <p class="star2"><i class="bx bxs-star"></i> 4.4</p>
-          </div>
-          <div class="body-card2">
-            <p class="info-location"><i class="bx bxs-map"></i><%= studio.address %> ...</p>
-            <p class="studio2"><%= studio.category %>.</p>
-          </div>
-          <div class="price-wrapper2">
-            <p><b><%= studio.price.toString().slice(0,3) %>K</b> / <span>jam</span></p>
-            <div class="btn-produk2">
-              <a href="#">Sewa</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% }); %>
-    </div> -->
     <!-- <div style="height: 100vh;"></div> -->
   </main><!-- End #main -->
 

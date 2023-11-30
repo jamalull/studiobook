@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Detail Informasi Tiket</title>
+  <title>Detail Pemesanan</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <base href="/">
@@ -45,176 +45,28 @@
   </header>
 
   <main class="container">
-    <div class="title-reservations text-center my-5">
-      <h2 class="mb-2 fw-semibold">Detail Tiket Pemesanan</h2>
-      <!-- <h6 class="text-body-tertiary">Silahkan ikuti petunjuk dibawah ini.</h6> -->
+    <div class="d-flex gap-4 justify-content-center my-5 position-relative">
+      <hr class="line-success position-absolute border border-1 border-black">
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="30" fill="#1ABC9C"/>
+        <path d="M18.6301 27.5267L23.823 36.2306C24.4685 37.3125 25.9416 37.5353 26.8782 36.6927L43.1847 22.0217" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="30" fill="#1ABC9C"/>
+        <path d="M18.6301 27.5267L23.823 36.2306C24.4685 37.3125 25.9416 37.5353 26.8782 36.6927L43.1847 22.0217" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="30" r="30" fill="#1ABC9C"/>
+        <path d="M18.6301 27.5267L23.823 36.2306C24.4685 37.3125 25.9416 37.5353 26.8782 36.6927L43.1847 22.0217" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      </svg>
     </div>
+    <h2 class="text-center my-5">Yeayy !! Berhasil</h2>
+    <img class="d-flex justify-content-center img-success" src="assets/img/succes-payment.png" alt="">
+    <h6 class="w-25 mx-auto text-center my-5 text-body-tertiary">Nanti akan kami informasikan melalui email setelah transaksi diterima</h6>
 
-    <div class="card bg-body-secondary p-3 w-75 mx-auto my-3 shadow-sm">
-      <div class="card-body d-flex  justify-content-between">
-        <div>
-          <p class="fw-lighter m-0">No Pemesanan <%= transaction.reservation.id %></p>
-          <p class="fw-lighter">No Pembayaran <%= transaction.id %></p> <hr>
-          <h1><%= transaction.reservation.studio.name %></h1>
-          <p class="fw-semibold mb-2">Sewa Studio untuk waktu pada <%= transaction.reservation.rentDate.toDateString() %></p>
-          <span class="d-flex gap-3 text-dark">
-            <i class="bi bi-image-fill"></i>
-            <p class="fw-semibold m-0">Bukti Pembayaran : <%= transaction.photoPayment == null ? "User belum bayar" : transaction.photoPayment %></p>
-          </span>
-          <span class="d-flex gap-3 text-dark">
-            <i class="bi bi-bank"></i>
-            <p class="fw-semibold m-0">Asal Bank : <%= transaction.bank == null ? "User belum bayar" : transaction.bank %></p>
-          </span>
-          <span class="d-flex gap-3 text-dark mb-2">
-            <i class="bi bi-send"></i>
-            <p class="fw-semibold m-0">Pengirim : <%= transaction.sender == null ? "User belum bayar" : transaction.sender %></p>
-          </span>
-          <span class="d-flex gap-3 text-dark">
-            <i class="bi bi-currency-dollar"></i>
-            <p class="fw-semibold m-0">Fee (Tax 10%) : <span class="fw-bold"> <%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.fee); %></span></p>
-          </span>
-          <span class="d-flex gap-3 text-dark">
-            <i class="bi bi-cash-stack"></i>
-            <p class="fw-semibold">Total Pembayaran : <span class="fw-bold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.totalPayment); %></span></p>
-          </span>
-          <div class="d-flex gap-5 mb-4">
-            <span class="d-flex gap-3 text-dark">
-              <i class="bi bi-building-fill-check"></i>
-              <p class="fw-semibold m-0">Ruang Studio <%= transaction.reservation.room %></p>
-            </span>
-            <span class="d-flex gap-3 text-dark">
-              <i class="bi bi-alarm-fill"></i>
-              <p class="fw-semibold m-0">Durasi Sewa <%= transaction.reservation.duration %> Jam</p>
-            </span>
-          </div>
-          <hr>
-          <span class="d-flex gap-3 <%= transaction.reservation.status == "PENDING" ? "text-warning-emphasis" : transaction.reservation.status == "AKTIF"
-            ? "text-primary" : transaction.reservation.status == "DIBATALKAN" ? "text-danger" : transaction.reservation.status == "SELESAI" ? "text-success" : "text-dark"%> mt-3">
-            <i class="bi bi-check-circle-fill"></i>
-            <p class="fw-semibold text-uppercase m-0">TIKET PEMESANAN <%= transaction.reservation.status %></p>
-          </span>
-        </div>
-        <div>
-          <img class="rounded-3" src="upload/images/studio/<%= transaction.reservation.studio.image %>" alt="image-studio" width="380" height="280">
-          <span class="d-flex justify-content-between mt-2">
-            <p class="m-0 fw-semibold"><%= transaction.reservation.studio.name %></p>
-            <p class="m-0"> <span class="fw-semibold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.reservation.studio.price); %></span>/Jam</p>
-          </span>
-          <p class="m-0"><%= transaction.reservation.studio.address %></p>
-        </div>
-      </div>
-    </div>
-    <div class="d-flex flex-column mx-auto mt-5 w-25 gap-2">
-      <% if (transaction.reservation.status == "PENDING") { %>
-        <a href="/payment/<%= transaction.id %>" class="btn btn-info">
-          <span>
-            <i class="bi bi-credit-card"></i>
-            Selesaikan Pembayaran
-          </span>
-        </a>
-      <% } else if (transaction.reservation.status == "AKTIF") { %>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal"
-          data-bs-target="#completedModal-<%= transaction.id %>">
-          <span>
-            <i class="bi bi-check2-circle"></i>
-            Selesaikan Pemesanan
-          </span>
-        </button>
-        <!-- <a href="/payment/<%= transaction.id %>" class="btn btn-success">
-          <span>
-            <i class="bi bi-check2-circle"></i>
-            Selesaikan Pemesanan
-          </span>
-        </a> -->
-      <% } else if (transaction.reservation.status == "SELESAI") {%>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-          data-bs-target="#ratingModal-<%= transaction.id %>">
-          <span>
-            <i class="bi bi-star"></i>
-            Berikan Penilaian
-          </span>
-        </button>
-        <!-- <a href="/payment/<%= transaction.id %>" class="btn btn-warning">
-          <span>
-            <i class="bi bi-star"></i>
-            Berikan Penilaian
-          </span>
-        </a> -->
-      <% } %>
-      <a href="/my-reservations" class="btn btn-primary mb-2">
-        <span>
-          <i class="bi bi-box-arrow-left"></i>
-          Kembali ke Beranda
-        </span>
-      </a>
-    </div> 
-
-    <!-- Modal Edit Data -->
-    <div class="modal fade" id="ratingModal-<%= transaction.id %>" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header mb-1">
-            <h5 class="modal-title">Review Studio</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- Floating Labels Form -->
-            <form class="row g-3" action="/dashboard/studios/updateStudio" method="POST">
-              <div class="col-md-12">
-                <input type="hidden" name="userId" value="<%=  %>" class="form-control">
-                <input type="hidden" name="studioId" value="<%= %>" class="form-control">
-              </div>
-              <div class="col-12">
-                <div class="form-floating mb-3">
-                  <select class="form-select" name="rating" id="floatingRating" aria-label="Rating Studio" required>
-                    <option value="" selected>Pilih Rating ...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                  <label for="floatingRating"><i class="bi bi-star me-2"></i>Rating Studio</label>
-                </div>
-              </div>
-              <div class="col-md-12 mb-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control" name="testimoni" id="floatingTestimoni" placeholder="Ketik Testimoni Anda Disini ..." required>
-                  <label for="floatingTestimoni"><i class="bi bi-chat-left me-2"></i>Review Studio</label>
-                </div>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-              </div>
-            </form><!-- End floating Labels Form -->
-          </div>
-        </div>
-      </div>
-    </div><!-- End Vertically centered Modal-->
-
-    <!-- Modal Confirm Completed Reservation -->
-    <div class="modal fade" id="completedModal-<%= transaction.id %>" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <form action="/completeReservationbyCustomer" method="POST">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabelLogout">Konfirmasi Tindakan !</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-              </button>
-            </div>
-            <div class="modal-body">
-              <input type="hidden" name="reservationId" value="<%= transaction.reservation.id %>" id="reservationId">
-              <p>Apakah Anda yakin ingin menyelesaikan pemesanan sewa studio ini ? <br><br> <b>Jika telah selesai jangan lupa berikan penilaian yaa ...</b></p>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Selesai</button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Batalkan</button>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div class="d-flex flex-column mx-auto w-25 gap-3">
+      <a href="my-reservations" class="btn btn-primary">Kembali ke Beranda</a>
+      <!-- <button class="btn btn-secondary opacity-50">Batalkan</button> -->
     </div>
   </main>
   

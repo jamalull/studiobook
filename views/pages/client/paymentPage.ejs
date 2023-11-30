@@ -45,43 +45,44 @@
   </header>
 
   <main class="container">
-    <div class="title-reservations text-center my-5">
-      <h2 class="mb-2 fw-semibold">Pembayaran</h2>
-      <h6 class="text-body-tertiary">Silahkan ikuti petunjuk dibawah ini.</h6>
-    </div>
+    <form enctype="multipart/form-data" action="/payment" method="POST">
+      <div class="title-reservations text-center my-5">
+        <h2 class="mb-2 fw-semibold">Pembayaran</h2>
+        <h6 class="text-body-tertiary">Silahkan ikuti petunjuk dibawah ini.</h6>
+      </div>
 
-    <div class="row mt-5 justify-content-center">
-      <div class="col-lg-4 left-payment">
-        <p class="mb-4">Transfer Pembayaran :</p>
-        <p>Tax : <span class="fw-semibold">10%</span></p>
-        <p>Sub total : <span class="fw-semibold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.totalPayment-transaction.fee); %></span></p>
-        <p>Total : <span class="fw-semibold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.totalPayment); %></span></p>
-        <div>
-          <div class="d-flex gap-5">
-            <img src="assets/img/bca.png" alt="logo-bca" width="60" height="35">
-            <div>
-              <p>Bank Central Asia</p>
-              <p>2208 1996</p>
-              <p>StudioBook Inc.</p>
+      <div class="row mt-5 justify-content-center">
+        <div class="col-lg-4 left-payment">
+          <p class="mb-4">Transfer Pembayaran :</p>
+          <p>Tax : <span class="fw-semibold">10%</span></p>
+          <p>Sub total : <span class="fw-semibold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.totalPayment-transaction.fee); %> + (Tax <%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.fee); %>)</span></p>
+          <p>Total : <span class="fw-semibold"><%= new Intl.NumberFormat("id-ID", { style: "currency" , currency: "IDR" }).format(transaction.totalPayment); %></span></p>
+          <div>
+            <div class="d-flex gap-5">
+              <img src="assets/img/bca.png" alt="logo-bca" width="60" height="35">
+              <div>
+                <p>Bank Central Asia</p>
+                <p>2208 1996</p>
+                <p>StudioBook Inc.</p>
+              </div>
             </div>
-          </div>
-          <div class="d-flex gap-5">
-            <img src="assets/img/mandiri.png" alt="logo-mandiri" width="60" height="35">
-            <div>
-              <p>Bank Mandiri</p>
-              <p>3304 3455</p>
-              <p>StudioBook Inc.</p>
+            <div class="d-flex gap-5">
+              <img src="assets/img/mandiri.png" alt="logo-mandiri" width="60" height="35">
+              <div>
+                <p>Bank Mandiri</p>
+                <p>3304 3455</p>
+                <p>StudioBook Inc.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-5 right-payment">
-        <form action="/payment" method="POST">
+        <div class="col-lg-5 right-payment">
           <div class="d-flex flex-column">
             <!-- <label for="name">Username</label> -->
             <!-- <input class="w-75 bg-body-secondary border-0 p-2 rounded-3" type="text" value="<%= user.username %>" name="name" id="name" placeholder="Tolong ketik nama anda ..." disabled> -->
             <input type="hidden" name="userId" value="<%= user.id %>">
-            <input type="hidden" name="reservation" value="<%= transaction.reservationId %>">
+            <input type="hidden" name="id" value="<%= transaction.id %>">
+            <input type="hidden" name="reservationId" value="<%= transaction.reservationId %>">
 
             <label class="mt-4" for="photoPayment">Upload Bukti Transfer</label>
             <!-- <input class="w-75 bg-body-secondary border-0 p-2 rounded-3" type="text" name="photoPayment" placeholder="Silahkan Upload bukti transfer disini ..."> -->
@@ -90,21 +91,20 @@
             <label class="mt-4" for="bank">Asal Bank</label>
             <select class="w-75 bg-body-secondary border-0 p-2 rounded-3" name="bank" id="bank">
               <option value="">Silahkan pilih bank tujuan ...</option>
-              <option value="bca">BCA</option>
-              <option value="mandiri">Mandiri</option>
+              <option value="BCA">BCA</option>
+              <option value="Mandiri">Mandiri</option>
             </select>
             
             <label class="mt-4" for="sender">Nama Pengirim</label>
             <input class="w-75 bg-body-secondary border-0 p-2 rounded-3" type="text" name="sender">
           </div>
-        </form>
-
+        </div>
       </div>
-    </div>
-    <div class="d-flex flex-column mx-auto mt-5 w-25 gap-3">
-      <button type="submit" class="btn btn-primary">Lanjutkan Pembayaran</button>
-      <a href="/studios" class="btn btn-secondary opacity-50 mb-2">Batalkan</a>
-    </div>
+      <div class="d-flex flex-column mx-auto mt-5 w-25 gap-3">
+        <button type="submit" class="btn btn-primary">Lanjutkan Pembayaran</button>
+        <a href="/studios" class="btn btn-secondary opacity-50 mb-2">Batalkan</a>
+      </div>
+    </form>
   </main>
   
   <!-- Vendor JS Files -->
