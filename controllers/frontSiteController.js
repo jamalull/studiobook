@@ -1,4 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
+const multer = require("multer");
 const { v4: uuidv4 } = require('uuid');
 
 class FrontSiteController {
@@ -10,8 +11,16 @@ class FrontSiteController {
     res.render("home", {user: req.user});
   };
 
+  getAboutUs = (req, res) => {
+    res.render("pages/client/aboutUsPage", {user: req.user});
+  };
+
   getDashboard = (req, res) => {
     res.render("pages/admin/dashboardHome", {user: req.user});
+  };
+
+  getSuccessPayment = (req, res) => {
+    res.render("pages/client/successPaymentPage", {user: req.user});
   };
 
   getHistoryReservations = async (req, res) => { 
@@ -41,10 +50,6 @@ class FrontSiteController {
     return res.render("pages/client/detailTiket", {transaction ,user: req.user});
   };
 
-  // getPaymentPage = (req, res) => {
-  //   res.render("pages/client/paymentPage", {user: req.user});
-  // };
-  
   getReservationPage = async (req, res) => {
     try {
       // const studioId = req.params.studioId;
@@ -83,33 +88,51 @@ class FrontSiteController {
 
   createPayment = async (req, res) => {
     try {
-
-      // const id = uuidv4();
-      const payload = req.body;
-      // payload.userId = parseInt(payload.userId);
-      // payload.reservationId = parseInt(payload.reservationId);
-      // payload.totalPayment = parseInt(payload.totalPayment);
-      
-      // const fee = payload.totalPayment * 0.1; //tax fee 10%
-      // const total = payload.totalPayment + fee;
-
-
-      await this.prisma.transaction.update({
-        where: {
-          id: payload.reservationId,
+      let storage = multer.diskStorage({
+        destination: (req, file, callback) => {
+          callback(null, "./public/upload/images/payment");
         },
-        data: {
-          // id : id,
-          // reservationId : payload.reservationId,
-          // userId : payload.userId,
-          photoPayment : payload.photoPayment,
-          bank : payload.bank,
-          sender : payload.sender,
-          // fee : fee,
-          // totalPayment : total,
+        filename: (req, file, callback) => {
+          let temp_file_arr = file.originalname.split(".");
+          let temp_file_name = temp_file_arr[0];
+          let temp_file_extension = temp_file_arr[1];
+          callback(
+            null,
+            temp_file_name + "-" + Date.now() + "." + temp_file_extension
+          );
         },
       });
-      res.redirect("/");
+    
+      let upload = multer({ storage: storage }).single("photoPayment");
+      upload(req, res, async (error) => {
+        const payload = req.body;
+        payload.userId = parseInt(payload.userId);
+        
+        if (error) {
+          return res.end("Error Uploading File");
+        } else {
+          console.log("Body ", payload);
+          console.log("File ", req.file);
+          
+          await this.prisma.transaction.update({
+            where: {
+              id: payload.id
+            },
+            data: {
+              photoPayment : req.file.filename,
+              bank : payload.bank,
+              sender : payload.sender,
+              // id : id,
+              // reservationId : payload.reservationId,
+              // userId : payload.userId,
+              // fee : fee,
+              // totalPayment : total,
+            },
+          });
+        }
+      });
+      
+      res.redirect("/success-payment");
     } catch (error) {
       res.send(error.message);
     }
@@ -163,24 +186,42 @@ class FrontSiteController {
     }
   };
 
+  
+  completeReservation = async (req, res) => {
+    try {
+      const payload = req.body;
+      await this.prisma.reservation.update({
+        where: {
+          id: payload.reservationId,
+        },
+        data: {
+          status: "SELESAI",
+        },
+      });
+      res.redirect(`/my-reservations`);
+    } catch (error) {
+      res.send(error.message);
+    }
+  };
+
   getAllListStudio = async (req, res) => {
     const studios = await this.prisma.studio.findMany();
     // const users = await this.prisma.user.findMany();
 
     res.render("pages/client/listStudioPage", { studios, user: req.user });
   };
-  getAllListStudio2 = async (req, res) => {
-    const studios = await this.prisma.studio.findMany();
-    // const users = await this.prisma.user.findMany();
+  // getAllListStudio2 = async (req, res) => {
+  //   const studios = await this.prisma.studio.findMany();
+  //   // const users = await this.prisma.user.findMany();
 
-    res.render("pages/client/listStudioPage2", { studios, user: req.user });
-  };
-  getAllListStudio3 = async (req, res) => {
-    const studios = await this.prisma.studio.findMany();
-    // const users = await this.prisma.user.findMany();
+  //   res.render("pages/client/listStudioPage2", { studios, user: req.user });
+  // };
+  // getAllListStudio3 = async (req, res) => {
+  //   const studios = await this.prisma.studio.findMany();
+  //   // const users = await this.prisma.user.findMany();
 
-    res.render("pages/client/listStudioPage3", { studios, user: req.user });
-  };
+  //   res.render("pages/client/listStudioPage3", { studios, user: req.user });
+  // };
   getDetailStudio = async (req, res) => {
     try {
       const studioId = req.params.studioId;

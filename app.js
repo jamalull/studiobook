@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 const frontSiteRoutes = require('./routes/frontSiteRoutes');
 const authRoutes = require('./routes/authRoutes');
 const studioRoutes = require('./routes/studioRoutes');
-// const reservationRoutes = require('./routes/reservationRoutes');
+const reservationRoutes = require('./routes/reservationRoutes');
 // const transactionRoutes = require('./routes/transactionRoutes');
 require('./config/passport')(passport); 
 
@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/upload', express.static('upload'));
 // session for passport
 app.use(session({
     secret: 'secretForSession',
@@ -41,6 +42,7 @@ app.use(flash());
 app.use('/', frontSiteRoutes);
 app.use('/auth', authRoutes);
 app.use('/dashboard/studios', studioRoutes);
+app.use('/dashboard/reservations', reservationRoutes);
 // app.use('/transactions', transactionRoutes);
 // app.use('/dashboard/reservations', reservationRoutes);
 

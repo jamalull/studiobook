@@ -1,0 +1,5 @@
+1) Export all table in the database,
+2) For seeding manual you must use sql command in the inside of sql file on every table. Take out the command sql the Clue is INSERT INTO
+3) Procedure for seeding manual is appropriate based user-studio-reservations-transactions.
+
+Finish your database is ready to be used.

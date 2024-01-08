@@ -3,6 +3,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const FrontSiteController = require("../controllers/frontSiteController");
 
 router.get("/", FrontSiteController.getHome);
+router.get("/aboutPage", FrontSiteController.getAboutUs);
 router.get("/studios", FrontSiteController.getAllListStudio);
 router.get("/studios/detail-studio/:studioId", FrontSiteController.getDetailStudio);
 router.get("/dashboard", isLoggedIn, FrontSiteController.getDashboard);
