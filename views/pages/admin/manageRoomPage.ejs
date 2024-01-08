@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <base href="/">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <%- include('../../components/header') %>
+    <%- include('../../components/sidebar') %>
+
+      <main id="main" class="main">
+
+        <div class="pagetitle">
+          <h1>Kelola Ketersediaan Ruang Studio</h1>
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-6">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">StudioBook Dashboard Home</h5>
+                  <p>Hello <b>
+                      <% if(!user){ %>
+                        Myprofile
+                        <% }else{ %>
+                          <%= user.username %>
+                        <% } %>
+                    </b>, Welcome to the dashboard StudioBook.</p>
+                  <p>Enjoy, and let's to explore all feature in the dashboard now.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+              <!-- <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Example Card</h5>
+              <p>This is an examle page with no contrnt. You can use it as a starter for your custom pages.</p>
+            </div>
+          </div> -->
+
+            </div>
+          </div>
+        </section>
+
+        <!-- START TABLE LIST ALL STUDIO -->
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="card">
+                <div class="card-body">
+
+                  <span class="d-flex align-items-center">
+                    <h5 class="card-title me-auto">Daftar Studio</h5>
+                    <button class="btn btn-outline-primary h-25" data-bs-toggle="modal" data-bs-target="#createModal"><i
+                        class="fa-solid fa-plus fa-fade me-2"></i>Buat Ruang Baru
+                    </button>
+                  </span>
+
+                  <p class="mt-4">All Room Studio available will be display in the table and only Admin/Owner Studio can running command
+                    <a href="#" target="_blank">Create, Read, Update, and Delete</a> for the data of <code>Studio</code>
+                  </p>
+
+                  <!-- Table with stripped rows -->
+                  <table class="table datatable mt-4">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Studio</th>
+                        <th scope="col">No Ruangan</th>
+                        <th scope="col">Ketersediaan</th>
+                        <th scope="col">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <% if(rooms.length===0) { %>
+                        <tr>
+                          <td class="text-center fw-semibold" colspan="5"><p>Belum ada ruangan studio. Silahkan buat ruang baru.</p></td>
+                        </tr>
+                        <% } else {%>
+                          <% rooms.forEach((room, key)=> { %>
+                              <td>
+                                <%= room.id %>
+                              </td>
+                              <td>
+                                <%= room.studio.name %>
+                              </td>
+                              <td>
+                                <%= room.roomNumber %>
+                              </td>
+                              <td class="fw-bold <%= room.availability == "NPNAKTIF" ? "text-danger" : "text-primary"%> mt-3">
+                                <%= room.availability == "NONAKTIF" ? "TIDAK TERSEDIA" : "TERSEDIA" %>
+                              </td>
+                              
+                              <td>
+                                <div class="d-flex gap-2">
+                                  <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal-<%= room.id %>">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </button> -->
+                                  <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                    data-bs-target="#editModal-<%= room.id %>">
+                                    <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                                  </button>
+                                  <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal-<%= room.id %>">
+                                    <i class="fa fa-trash"></i>
+                                  </button> -->
+                                </div>
+                              </td>
+                            </tr>
+
+                          <!-- Modal Edit Data -->
+                          <div class="modal fade" id="editModal-<%= room.id %>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                              <div class="modal-content">
+                                <div class="modal-header mb-3">
+                                  <h5 class="modal-title">Update Ketersediaan Ruang</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <!-- Floating Labels Form -->
+                                  <form class="row g-3" action="/dashboard/studios/updateAvailabilityRoom" method="POST">
+                                    <div class="col-md-12 mb-3">
+                                      <input type="hidden" name="id" value="<%= room.id %>" class="form-control">
+                                      <input type="hidden" name="studioId" value="<%= room.studio.id %>" class="form-control">
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" name="roomNumber" value="<%= room.roomNumber %>" id="floatingRoom" disabled>
+                                        <label for="floatingRoom">Nomor Ruang Studio</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                      <div class="form-floating">
+                                        <input type="text" class="form-control" name="showavailabilityRoom" value="<%= room.availability %>" id="floatingAvailable" disabled>
+                                        <label for="floatingAvailable">Status Ketersediaan Ruang</label>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                      <div class="form-floating mb-3">
+                                        <select class="form-select" name="availability" id="floatingStatus" aria-label="Status Ketersediaan Ruangan Studio" required>
+                                          <option value="" selected>Pilih Status</option>
+                                          <option value="AKTIF">TERSEDIA</option>
+                                          <option value="NONAKTIF">TIDAK TERSEDIA</option>
+                                        </select>
+                                        <label for="floatingStatus">Ubah Status Ketersediaan Ruangan Studio</label>
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                      <button type="submit" class="btn btn-primary">Submit</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Kembali</button>
+                                    </div>
+                                  </form><!-- End floating Labels Form -->
+                                </div>
+                              </div>
+                            </div>
+                          </div><!-- End Vertically centered Modal-->
+                          <% }) } %>
+                    </tbody>
+                  </table>
+                  <!-- End Table with stripped rows -->
+
+                  <!-- Modal Create Data -->
+                  <div class="modal fade" id="createModal" tabindex="-1">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header mb-3">
+                          <h5 class="modal-title">Update Ketersediaan Ruang</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Floating Labels Form -->
+                          <form class="row g-3" action="/dashboard/studios/manageRoom" method="POST">
+                            <div class="col-md-12">
+                              <div class="form-floating mb-3">
+                                <select class="form-select" name="studioId" id="floatingStudio" aria-label="Studio Ketersediaan Ruangan Studio" required>
+                                  <option value="" selected>Pilih Studio</option>
+                                  <% studios.forEach(studio => { %>
+                                    <option value="<%= studio.id %>"><%= studio.name %></option>
+                                  <% }); %>
+                                </select>
+                                <label for="floatingStatus">Studio</label>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-floating">
+                                <input type="number" class="form-control" name="roomNumber" id="floatingRoom">
+                                <label for="floatingRoom">Nomor Ruang Studio</label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-floating mb-3">
+                                <select class="form-select" name="availability" id="floatingStatus" aria-label="Status Ketersediaan Ruangan Studio" required>
+                                  <option value="" selected>Pilih Status</option>
+                                  <option value="AKTIF">TERSEDIA</option>
+                                  <option value="NONAKTIF">TIDAK TERSEDIA</option>
+                                </select>
+                                <label for="floatingStatus">Status Ketersediaan Ruangan Studio</label>
+                              </div>
+                            </div>
+                            
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Kembali</button>
+                            </div>
+                          </form><!-- End floating Labels Form -->
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- End Vertically centered Modal-->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <!-- END TABLE LIST ALL STUDIO -->
+
+      </main><!-- End #main -->
+
+      <%- include('../../components/footer') %>
+
+        <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+          <i class="bi bi-arrow-up-short"></i>
+        </a>
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

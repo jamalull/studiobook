@@ -1,0 +1,44 @@
+INSERT INTO `users` (`id`, `username`, `role`, `email`, `phone`, `password`) VALUES
+(1, 'admin2', 'OWNER', NULL, NULL, '$2b$10$HkgUsiuIIvbD2UUdVO7JMeE34DWGk.3XQFbJj/8O/Rw/lP7pspyW6');
+INSERT INTO `users` (`id`, `username`, `role`, `email`, `phone`, `password`) VALUES
+(2, 'admin', 'CLIENT', NULL, NULL, '$2b$10$velZHZkmZyb/0VRRxVvMtuj1aoUhAaVCauhldGUhhWjst7XK2Rmuu');
+
+
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(1, 1, 'luxuryStudio-1701276195470.jpg', 'Signe Studio', 'Alias nemo tempora Alias nemo tempora dAlias nemo tempora dAlias nemo tempora tempora tempora tempora tempora tempora ', 'Depok, Jawa Barat', 258000, 'Studio Photography', NULL, 10, '2023-11-04 15:14:26.061', '2023-11-29 17:31:18.322');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(2, 1, 'minimalistStudio-1701276155337.jpg', 'Mcdonald Studio', 'Rerum aliquid quis eRerum aliquid quis eRerum aliquid quis eRerum aliquid quis eRerum aliquid quis e', 'Cikeas, Bogor', 350000, 'Studio Photography', NULL, 22, '2023-11-04 18:19:39.471', '2023-11-17 13:39:45.112');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(4, 1, 'photoshoot1-1701275946405.jpg', 'Prefixeal Studio', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rem doloribus pariatur inventore ipsum velit?', 'Klaten, Jawa Tengah', 250000, 'Studio Photography', NULL, 30, '2023-11-05 13:33:19.619', '2023-11-27 12:48:20.355');
+INSERT INTO `studios` (`id`, `ownerId`, `image`, `name`, `description`, `address`, `price`, `category`, `rating`, `room`, `createdAt`, `updatedAt`) VALUES
+(5, 1, 'podcast1-1701276132114.jpeg', 'Melodie Studio', 'In id non sapiente q In id non sapiente qIn id non sapiente qIn id non sapiente qIn id non sapiente q', 'JIS, Jakarta Barat', 250000, 'Studio Podcast', NULL, 2, '2023-11-17 13:02:21.353', '2023-11-17 13:02:21.353'),
+(6, 1, 'rainbowStudio-1701276166755.jpg', 'Guinevere Studio', 'Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id Qui voluptatibus id ', 'Kemang, Jakarta Selatan', 300000, 'Studio Recording', NULL, 6, '2023-11-17 13:04:24.628', '2023-11-17 13:04:24.628'),
+(7, 1, 'neonStudio-1701276182523.jpg', 'Ulysses Studio', 'Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint Earum impedit sint ', 'SCBD, Jakarta Pusat', 540000, 'Studio Music', NULL, 3, '2023-11-17 13:30:10.554', '2023-11-17 13:30:10.554'),
+(8, 1, 'studio-detiz-1701276015224.jpeg', 'Tucker Studio', 'Adipisicing perferenAdipisicing perferenAdipisicing perferenAdipisicing perferenAdipisicing perferen', 'Sudirman, Jakarta Pusat', 400000, 'Studio Photoshoot', NULL, 10, '2023-11-17 13:31:29.847', '2023-11-17 13:31:29.847'),
+(9, 1, 'whiteStudio-1701276146082.jpg', 'Ursa Studio', 'Ut est labore evenieUt est labore evenieUt est labore evenieUt est labore evenieUt est labore evenie', 'Cibiru, Bandung', 164000, 'Studio Music', NULL, 20, '2023-11-17 13:38:42.446', '2023-11-17 13:38:42.446'),
+(10, 1, 'podcast1-1701278852040.jpeg', 'Ivana Studios', 'Voluptatem totam dol', 'Quis labore commodo ', 100000, 'Studio Photography', NULL, 11, '2023-11-29 17:27:32.314', '2023-11-29 17:44:48.962'),
+(11, 1, 'rainbowStudio-1701279200300.jpg', 'Geoffrey Duke', 'Eu nostrud laborum ', 'Provident pariatur', 200000, 'Studio Photography', NULL, 2, '2023-11-29 17:33:20.318', '2023-11-29 17:44:37.508'),
+(12, 1, 'minimalistStudio-1701279917295.jpg', 'Nayda Studio', 'Dolor et consequat ', 'Itaque sed aut aliqu', 400000, 'Studio Music', NULL, 2, '2023-11-29 17:45:17.309', '2023-11-29 17:45:17.309');
+
+
+
+INSERT INTO `reservations` (`id`, `userId`, `studioId`, `room`, `duration`, `status`, `notes`, `rentDate`, `createdAt`, `updatedAt`) VALUES
+('09e955ff-cccf-44a3-9a9d-eb56feee0d1d', 1, 6, 2, 2, 'SELESAI', 'Siapin Kopii yaa ...', '2023-11-03', '2023-11-26 15:44:36.842', '2023-11-26 15:44:36.842');
+INSERT INTO `reservations` (`id`, `userId`, `studioId`, `room`, `duration`, `status`, `notes`, `rentDate`, `createdAt`, `updatedAt`) VALUES
+('2e59f1dd-6268-443b-a418-0496f8ffcd12', 1, 5, 1, 2, 'DIBATALKAN', 'Siapin studio nya yaa kak ....', '2023-11-30', '2023-11-27 12:43:21.831', '2023-11-30 09:19:00.799');
+INSERT INTO `reservations` (`id`, `userId`, `studioId`, `room`, `duration`, `status`, `notes`, `rentDate`, `createdAt`, `updatedAt`) VALUES
+('84d48c08-3bc6-4149-9bea-af9f17538cc1', 1, 7, 3, 3, 'PENDING', 'Okee bos', '2023-11-28', '2023-11-26 15:45:03.444', '2023-11-30 10:50:40.580');
+INSERT INTO `reservations` (`id`, `userId`, `studioId`, `room`, `duration`, `status`, `notes`, `rentDate`, `createdAt`, `updatedAt`) VALUES
+('be2fb1f0-5167-496b-b8f7-1fa37e4fc5d5', 1, 4, 3, 3, 'SELESAI', 'Siapin studio nya yaa kak ....', '2023-11-30', '2023-11-27 12:46:32.104', '2023-11-30 13:44:18.077');
+
+
+INSERT INTO `transactions` (`id`, `reservationId`, `userId`, `photoPayment`, `bank`, `sender`, `fee`, `totalPayment`, `createdAt`, `updatedAt`) VALUES
+('3feef084-3f24-499e-b640-6f48b42b4678', '84d48c08-3bc6-4149-9bea-af9f17538cc1', 1, 'StrukBCA-1701341332671.jpg', 'BCA', 'Ikhsan', 162000, 1782000, '2023-11-26 15:45:03.456', '2023-11-30 10:48:52.683');
+INSERT INTO `transactions` (`id`, `reservationId`, `userId`, `photoPayment`, `bank`, `sender`, `fee`, `totalPayment`, `createdAt`, `updatedAt`) VALUES
+('4741b2d5-5132-46b8-82eb-52dc304a97c7', '2e59f1dd-6268-443b-a418-0496f8ffcd12', 1, NULL, NULL, NULL, 50000, 550000, '2023-11-27 12:43:22.109', '2023-11-27 12:43:22.109');
+INSERT INTO `transactions` (`id`, `reservationId`, `userId`, `photoPayment`, `bank`, `sender`, `fee`, `totalPayment`, `createdAt`, `updatedAt`) VALUES
+('a2efed2b-d9d4-4c99-bf0a-c68ca9a91312', 'be2fb1f0-5167-496b-b8f7-1fa37e4fc5d5', 1, NULL, NULL, NULL, 75000, 825000, '2023-11-27 12:46:32.123', '2023-11-27 12:46:32.123');
+INSERT INTO `transactions` (`id`, `reservationId`, `userId`, `photoPayment`, `bank`, `sender`, `fee`, `totalPayment`, `createdAt`, `updatedAt`) VALUES
+('ee4fa07d-e866-44cd-b6d9-07abad324949', '09e955ff-cccf-44a3-9a9d-eb56feee0d1d', 1, NULL, NULL, NULL, 60000, 660000, '2023-11-26 15:44:37.024', '2023-11-26 15:44:37.024');
+
+
